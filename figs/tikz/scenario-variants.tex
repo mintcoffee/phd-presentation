@@ -1,0 +1,26 @@
+\begin{tikzpicture}[node distance=1.8cm]
+  %Boxes
+  \node[box] (static) {Variant Diff and Analysis};
+  \node[box, right=of static] (abs) {Feature\\Abstraction};
+  \node[box, fds, right=of abs] (synth) {\textbf{FM\\Synthesis}};
+  \coordinate[left=of static] (platform);
+
+  % Arrows
+  \begin{scope}[-latex']
+    \draw ($(synth.south)-(0,0.5)$) node[l,anchor=north] {User Input} -- (synth);
+    \draw ($(abs.south)-(0,0.5)$) node[l,anchor=north] {User Input} -- (abs);
+
+    \draw ($(static.east)+(0,.3)$)--($(abs.west)+(0,.3)$) node[l,pos=0,anchor=south west,align=left] {VPs};
+    \draw ($(static.east)-(0,.4)$)--($(abs.west)-(0,.4)$) node[l,pos=0,anchor=south west,align=left] {VP Configs.};
+
+    \draw ($(platform)+(0,0)$) -- ($(static.west)+(0,0)$) node[l,pos=1, anchor=south east,xshift=-.5em, align=right] {Variants};
+    \draw ($(abs.east)+(0,.4)$) -- ($(synth.west)+(0,.4)$) node[l,pos=0, anchor=south west, xshift=.5em] {Features};
+    \draw ($(abs.east)-(0,.4)$) -- ($(synth.west)-(0,.4)$) node[l,pos=0, anchor=south west, xshift=.5em, align=left] {Feature\\Configs.};
+    \draw (synth) -- ($(synth.east)+(.8,0)$) node[l,pos=0,anchor=south west,align=left] {FM};
+  \end{scope}
+
+  \begin{pgfonlayer}{background}
+    \node[stage] (reveng) [fit=(static) (abs)] {};
+    \node[l,above=-1mm of reveng,xshift=.4cm]{\textbf{Variability Analysis}};
+  \end{pgfonlayer}
+\end{tikzpicture}%

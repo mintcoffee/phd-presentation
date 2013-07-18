@@ -1,0 +1,32 @@
+%!TEX root = ../doc.tex
+\begin{tikzpicture}[node distance=1.8cm]
+  %Boxes
+  \node[box] (formula) {Logic\\Translation};
+  \node[box,right=of formula] (op) {Logic Merge\\Operation};
+  \node[box, fds, right=of op,xshift=.5cm] (synth) {\textbf{FM\\Synthesis}};
+  %\node[box,yshift=1cm,below=of op] (merge) {Tree\\Hierarchy Selection};
+
+  % Arrows
+  \draw[-latex'] ($(formula.west)-(1,0)$) -- ($(formula.west)+(0,0)$) node[l,pos=1, anchor=south east,align=right,xshift=-.5em] {Set of\\FMs};
+
+  \draw[-latex'] ($(formula.east)+(0,.3)$) -- ($(op.west)+(0,.3)$) node[l,pos=0, anchor=south west,align=left] {Features};
+  \draw[-latex'] ($(formula.east)-(0,.3)$) -- ($(op.west)-(0,.3)$) node[l,pos=0, anchor=south west,align=left] {Deps.};
+  \draw[-latex'] ($(op.east)+(0,.3)$) -- ($(synth.west)+(0,.3)$) 
+	node[l,pos=0, anchor=south west,xshift=.5em] {Features};
+  \draw[-latex'] ($(op.east)-(0,.3)$) -- ($(synth.west)-(0,.3)$) 
+	node[l,pos=0, anchor=south west,align=left,xshift=.5em] {Deps.'};
+
+  \draw[-latex'] (synth) -- ($(synth.east)+(.8,0)$) node[l,pos=0,anchor=south west] {FM};
+
+
+  \draw[-latex'] ($(formula.west)-(.4,0)$) -- ++ (0,-1.8) -- ($(synth.center)+(0,-1.8)$) -- (synth)
+	node[l,pos=0.4, align=left,anchor=west,xshift=.3em]{FM Merge\\Heuristics};
+  %\draw[-latex'] ($(merge.west)-(.5,.2)$) -- ($(merge.west)-(0,.2)$)
+  %node[l,pos=0,anchor=east]{FM Merge Heuristics};
+  %\draw[-latex'] (merge) -| (synth) node[l,pos=.875, anchor=west,right] {Tree};
+
+  \begin{pgfonlayer}{background}
+    \node[stage] (reveng) [fit=(formula) (op)] {};
+    \node[l,above=-1mm of reveng]{\textbf{Variability Analysis}};
+  \end{pgfonlayer}
+\end{tikzpicture}

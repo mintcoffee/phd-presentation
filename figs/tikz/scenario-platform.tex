@@ -1,0 +1,27 @@
+\begin{tikzpicture}[node distance=1.8cm]%
+  %Boxes
+  \node[box] (static) {Static Analysis};
+  \node[box, right=of static,xshift=-1em] (abs) {Feature\\Abstraction};
+\node[box, right=of abs, fds] (synth) {\textbf{FM\\Synthesis}};
+  \coordinate[left=of static] (platform);
+
+  % Arrows
+  \draw[-latex'] ($(synth.south)-(0,0.5)$) 
+	node[l,anchor=north,align=left] {Feature Similarity,\\User Input} -- (synth);
+  \draw[-latex'] ($(abs.south)-(0,0.5)$) node[l,anchor=north] {User Input} -- (abs);
+
+  \draw[-latex'] (platform) -- (static) node[l,pos=1, xshift=-.5em, anchor=south east, align=right] {Variability-Rich\\Source Code};
+
+  \draw[-latex'] ($(static.east)+(0,.3)$) -- ($(abs.west)+(0,.3)$) node[l,pos=0, anchor=south west,align=left] {VPs};
+  \draw[-latex'] ($(static.east)-(0,.3)$) -- ($(abs.west)-(0,.3)$) node[l,pos=0, anchor=south west] {Deps.};
+
+  \draw[-latex'] ($(abs.east)+(0,.3)$) -- ($(synth.west)+(0,.3)$) node[l,pos=0, xshift=.5em, anchor=south west] {Features};
+  \draw[-latex'] ($(abs.east)-(0,.3)$) -- ($(synth.west)-(0,.3)$) node[l,pos=0, xshift=.5em, anchor=south west] {Deps.};
+
+  \draw[-latex'] (synth) -- ($(synth.east)+(.8,0)$) node[l,pos=0,anchor=south west] {FM};
+
+  \begin{pgfonlayer}{background}
+    \node[stage] (reveng) [fit=(static) (abs)] {};
+    \node[l,above=-1mm of reveng]{\textbf{Variability Analysis}};
+  \end{pgfonlayer}
+\end{tikzpicture}%

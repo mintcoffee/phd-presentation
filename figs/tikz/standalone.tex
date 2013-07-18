@@ -1,0 +1,29 @@
+\documentclass[tikz,convert={
+  	       outfile=../__FILE__.svg,
+	       command=\unexpanded{pdf2svg \infile\space\outfile}}]{standalone}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage[bitstream-charter,cal=cmcal]{mathdesign} %font
+\usepackage[scale=.93]{tgheros}
+
+\usetikzlibrary{matrix,calc,arrows,positioning,fit,backgrounds,shadows,intersections,shapes}
+
+\tikzset{box/.style={font=\sffamily,draw, text width=2.3cm,text centered, minimum height=3.9em, fill=white, drop shadow}}
+\tikzset{l/.style={font=\sffamily\smaller,node distance=0cm, text depth=.5ex}}
+
+% Feature model styles
+\tikzset{
+    feature/.style={draw, inner sep=1.5mm, font=\small\sffamily, fill=white, drop shadow, minimum height=1em},
+    opt/.style={fill=white},
+    man/.style={fill=black}}
+
+\tikzset{%
+        stage/.style={draw, dashed, inner sep=.5em},
+        fds/.style={line width=.2em, font=\sffamily\footnotesize\bfseries}}%
+
+\begin{document}
+\input{__FILE__}
+\end{document}

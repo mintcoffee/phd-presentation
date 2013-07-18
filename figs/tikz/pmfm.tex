@@ -1,0 +1,58 @@
+\begin{tikzpicture}[node distance=.7cm]
+  \node[feature] (pm) {\strut pm};
+
+  \matrix (sub)[matrix of nodes,
+                below=of pm,
+                column sep=30mm, row sep=0mm, nodes=feature]{
+  \strut acpi & %sub-1-1
+  \strut cpu\_freq \\ %sub-1-2
+  };
+
+  \matrix (one)[matrix of nodes, 
+                  below=of sub-1-1,
+                  xshift=-1.25cm,
+                  column sep=3mm, row sep=0mm, nodes=feature]{
+  \strut acpi\_system \\
+  };
+
+  \matrix (two)[matrix of nodes, 
+                  below=of sub-1-2,
+                  column sep=3mm, row sep=0mm, nodes=feature]{
+  \strut cpu\_hotplug & %two-1-1
+  \strut performance & %two-1-2
+  \strut powersave \\ %two-1-3
+  };
+
+  \draw (pm.south) -- (sub-1-1.north);
+  \draw (pm.south) -- (sub-1-2.north);
+
+  \draw (sub-1-1.south) -- (one-1-1.north);
+  \draw (sub-1-2.south) -- (two-1-1.north);
+  \draw (sub-1-2.south) -- (two-1-2);
+  \draw (sub-1-2.south) -- (two-1-3);
+
+  %CTC
+  \draw[dotted] ($(two-1-1.south)+(.25,0)$) node {\footnotesize\textsf{x}} -- ($(two-1-1.south)-(-.25,.4)$) -| (two-1-2.south) node {\footnotesize\textsf{x}}
+    node[l,pos=.25,anchor=north] {\smaller excludes};
+  \draw[-triangle 45,dashed] ($(two-1-1.south)-(.25,0)$) -- ($(two-1-1.south)-(.25,1)$) -| (two-1-3.south) node[l,pos=.25,anchor=north] {\smaller implies};
+  \draw[-triangle 45,dashed] (two-1-1) -- (sub-1-1) node[l,pos=.5,anchor=west,xshift=.1cm] {\smaller implies};
+
+  %%optional / mandatory
+  \draw[opt] (sub-1-1.north) circle (.8mm); 
+  \draw[opt] (sub-1-2.north) circle (.8mm); 
+  \draw[opt] (two-1-1.north) circle (.8mm); 
+  \draw[man] (one-1-1.north) circle (.8mm); 
+
+  %Group arc
+  \begin{scope}
+    \path[clip] (sub-1-2.south) -- (two-1-2.center) -- (two-1-3.center) -- cycle;
+    \draw ($(sub-1-2.south)$) circle (.5cm);
+  \end{scope}
+\end{tikzpicture}
+\vspace{-\baselineskip}
+\begin{small}
+\begin{equation*}
+\textsf{powersave} \land \textsf{acpi} \rightarrow \textsf{cpu\_hotplug}
+\end{equation*}
+\end{small}
+
