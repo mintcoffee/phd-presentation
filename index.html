@@ -114,16 +114,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<img class="no-border" src="figs/pmfm.tex.svg" width="140%">
 					</section>
 					<section>
-						<h2>Building Feature Models</h2>
-
-						<p class="text-center">How do you build a feature model for large software systems?</p>
-						<ul>
-							<li>FreeBSD v8.0, 1203 features</li>
-							<li>eCos, 1245 features</li>
-							<li>Linux, over 6000 features</li>
-						</ul>
-					</section>
-					<section>
 						<h2>Feature Model </h2>
 					</section>
 				</section>
@@ -144,11 +134,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 					<section>
-						<h2>Input Configurations</h2>
-					</section>
-
-					<section>
-						<h2>Synthesis Example</h2>
+						<h2>Soundness and Completeness</h2>
 
 						<p style="width: 400px; margin: auto;">
 							{ OS, staging }<br>
@@ -158,18 +144,18 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<div style="float: left; width: 35%; margin-right: .5%; height: 350px; text-align: center;">
 						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption">(a) More configs</div>
+						<div class="caption">(a) More configs<br>(complete)</div>
 						</div>
 						<div style="float: left; width: 32%; height: 350px; text-align: center;">
 						<img src="figs/fd-less.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption">(b) Less configs</div>
+						<div class="caption">(b) Less configs<br>(sound)</div>
 						</div>
 						<div style="float: left; width: 32%; height: 350px; text-align: center;">
 						<img src="figs/fd-arbitrary.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption" style="width: 32%;">(c) Arbitrary</div>
-						</div>						
-
+						<div class="caption" style="width: 32%;">(c) Arbitrary<br>&nbsp;</div>
+						</div>		
 					</section>
+
 
 					<section>
 						<h2>Same Configurations, Different Hierarchies</h2>
@@ -177,8 +163,8 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<div style="float: left; width: 36%; margin-right: .5%; height: 300px; margin-top: 120px;">
 						<p>
 						{ OS, staging }<br>
-						{ OS, staging, net}<br>
-						{ OS, staging, net, dst}</p>
+						{ OS, staging, net }<br>
+						{ OS, staging, net, dst }</p>
 						</div>
 
 						<div style="float: left; width: 30%; margin-right: .5%; height: 300px; text-align: center;">
@@ -187,14 +173,51 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</div>
 						<div style="float: left; width: 30%; height: 300px; text-align: center;">
 						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2.5;">
-						<div class="caption" style="width:32%;">(a) Same configs</div>
+						<div class="caption" style="width:32%;">(b) Same configs</div>
 						</div>
-<!-- 						<div style="float: left;">
-						<img src="figs/fg.tex.svg" class="no-border" width="250">
-						(c) A Feature Graph
-						</div>
- -->						<div class="clearfix"></div>
+						<div class="clearfix"></div>
 					</section>
+
+					<section>
+						<h2>Solution: Feature Graph</h2>
+ 						<div class="text-center">
+						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 3;">
+						</div>
+						<div class="clearfix"></div>
+
+						<ul>
+							<li>Describes <strong>all</strong> feature diagrams that are complete w.r.t. input</li>
+							<li>$$\varphi \rightarrow [[FG]]$$</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>From A Feature Graph to Feature Diagram</h2>
+
+						<div style="float: left; width: 32%; margin-right: 2%; height: 300px; padding-top: 53px; text-align: center;">
+						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> to
+						</div>
+						<div style="float: left; width: 34%; margin-right: .5%; height: 300px; text-align: center;">
+						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> or
+						</div>
+						<div style="float: left; width: 31%; height: 300px; text-align: center;">
+						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2.5;">
+						</div>
+
+					</section>
+
+					<section>
+						<h2>Scalability</h2>
+
+						<p class="text-center bigskip">How do you build a feature model for large software systems?</p>
+						<ul>
+							<li><span style="display: block; float: left; width: 300px;">FreeBSD v8.0</span> 1203 features</li>
+							<li><span style="display: block; float: left; width: 300px;">eCos</span> 1245 features</li>
+							<li><span style="display: block; float: left; width: 300px;">Linux</span> over 6000 features</li>
+						</ul>
+
+					</section>
+
 				</section>
 
 				<section>
