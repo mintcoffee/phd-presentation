@@ -1,0 +1,118 @@
+/**
+ * Sky theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'PT Sans', sans-serif;
+$mainColor: #333;
+$headingFont: 'Oswald', sans-serif;
+$headingColor: #333;
+$headingLetterSpacing: -0.04em;
+$headingLineHeight: 1.2em;
+$headingTextShadow: none;
+$backgroundColor: #f7fbfc;
+$linkColor: #3b759e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+
+// Color Scheme
+$bgColor: #cdd9e4;
+$accentColor: #474497;
+
+// Fix links so they are not cut off
+.reveal a:not(.image) {
+	line-height: 1.3em;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( #cdd9e4, #f7fbfc );
+}
+
+.reveal {
+	h1 {
+		font-size: 2.5em;
+		margin-bottom: .5em !important;
+	}
+
+	h2 {
+		margin-bottom: .5em !important;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		text-transform: none !important;
+	}
+
+	section img {
+		border-width: .1em !important;
+		&.no-border {
+			border: none;
+			box-shadow: none;
+		}
+	}
+
+	p {
+		text-align: left;
+
+		em {
+			color: $accentColor;
+		}
+	}
+
+	pre {
+		width: 100%;
+		font-size: .65em;
+	}
+}
+
+.smallskip {
+	margin-bottom: .5em !important;
+}
+
+.medskip {
+	margin-bottom: 1em !important;
+}
+
+.bigskip {
+	margin-bottom: 2em !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+.caption {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.reveal p.slide-number {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+  left: 50%;
+  text-align: center;
+  margin-left: -50px;
+  font-family: "Oswald", sans-serif;
+  font-size: .6em !important;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
