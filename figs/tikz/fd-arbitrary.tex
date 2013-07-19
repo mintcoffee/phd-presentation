@@ -1,0 +1,14 @@
+
+  \begin{tikzpicture}[node distance=1.5em]
+    \node[feature] (a) {\strut OS};
+    \matrix[column sep=2em, below=of a] {
+      \node[feature](b) {\strut net}; &
+      \node[feature] (staging) {\strut staging}; \\
+    };
+    \node[feature, below=of staging](c) {\strut dst};
+    \draw (a.south) -- (b.north) (staging.south) -- (c.north) (a.south) -- (staging.north);
+
+    \draw[man] (b.north) circle (.8mm); 
+    \draw[opt] (c.north) circle (.8mm); 
+    \draw[opt] (staging.north) circle (.8mm); 
+  \end{tikzpicture}

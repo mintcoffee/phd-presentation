@@ -1,0 +1,37 @@
+\begin{tikzpicture}[node distance=1.5cm]
+\node[box, fds, align=center] (dag) {DAG\\Hierarchy\\Recovery};
+\node[box, fds, align=center, right=of dag] (group) {Group and\\CTC\\Recovery};
+\node[box, align=center, right=of group,dotted] (tree) {Tree\\Hierarchy\\Selection};
+
+\begin{scope}[-stealth']
+\draw ($(dag.west)-(2,-.3)$) -- ($(dag.west)+(0,.3)$) 
+	node[l,pos=1,anchor=south east, align=right,xshift=-1em] {Propositional\\Formula\\(CNF, DNF)};
+
+\draw ($(dag.west)+(-2,-.3)$) -- ($(dag.west)+(0,-.3)$)
+	node[l,pos=1, anchor=south east, align=right,xshift=-1em] {Features};
+
+\draw ($(dag.west)-(0.25,-.3)$) -- ++(0,1) -- ($(group)+(0,1.3)$) -- (group);
+
+\draw (dag) -- (group)
+	node[l, pos=0, anchor=south west] {DAG};
+
+\draw($(tree.south)-(0,1)$) -- (tree.south)
+	node[l, align=left, anchor=west, pos=.4] {User Input,\\Heuristics};
+
+\draw (group) -- (tree)
+	node[l,pos=0, anchor=south west,align=left,xshift=.6em] {Feature\\Graph};
+
+
+\draw (tree) -- ($(tree.east)+(.8,0)$)
+	node[l,pos=0,anchor=south west, xshift=.3em] {FM};
+
+
+  \begin{pgfonlayer}{background}
+	\coordinate (dag-top) at ($(dag.north west) + (-.2,.5)$);
+    \node[stage] (synth) [fit=(dag-top) (group), fill=black!5] {};
+    \node[l,above=-1mm of synth]{\textbf{Feature Graph Extraction (Fge)}};
+  \end{pgfonlayer}
+
+\end{scope}
+
+\end{tikzpicture}

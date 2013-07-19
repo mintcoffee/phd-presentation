@@ -1,0 +1,33 @@
+\begin{tikzpicture}[node distance=1.5cm]%
+
+\node[box, fds, align=center] (dag) {DAG\\Hierarchy\\Recovery};
+\node[box, align=center, right=of dag,dotted] (tree) {Tree\\Hierarchy\\Selection};
+\node[box, fds, align=center, right=of tree] (group) {Group and\\CTC\\Recovery};
+
+
+\begin{scope}[-stealth']
+\draw ($(dag.west)+(-2,.3)$) -- ($(dag.west)+(0,.3)$) 
+	node[l,pos=1,anchor=south east, align=right,xshift=-1em] {Propositional\\Formula\\(CNF, DNF)};
+
+\draw ($(dag.west)+(-2,-.3)$) -- ($(dag.west)+(0,-.3)$)
+	node[l,pos=1, anchor=south east, align=right,xshift=-1em] {Features};
+
+\draw ($(dag.west)-(0.25,-.3)$) -- ++(0,1) -- ($(group)+(0,1.3)$) -- (group);
+
+\draw (dag) -- (tree) node[l, pos=0, anchor=south west, xshift=.3em] {DAG};
+\draw ($(tree.east)$) -- ($(group.west)$) node[l,pos=0, anchor=south west, xshift=.3em, align=left] {Feature\\Tree};
+
+\draw($(tree.south)-(0,1)$) -- (tree.south)
+	node[l, align=left, anchor=west, pos=.2] {User Input,\\Heuristics};
+
+\draw (group) -- ($(group.east)+(.8,0)$) node[l,pos=0,anchor=south west, xshift=.5em] {FM};
+\end{scope}
+
+  \begin{pgfonlayer}{background}
+%	\coordinate (dag-top) at ($(dag.north west) + (-.2,.5)$);
+ %   \node[stage, fill=black!5] (synth) [fit=(dag-top) (group)] {};
+%    \node[l,above=-1mm of synth]{\textbf{FM Synthesis}};
+  \end{pgfonlayer}
+
+\end{tikzpicture}
+
