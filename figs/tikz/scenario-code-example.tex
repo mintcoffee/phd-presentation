@@ -1,0 +1,17 @@
+  \begin{tikzpicture}
+    \node[draw, rounded corners,minimum height=1.6cm,text width=1cm, text centered, drop shadow,fill=blue!15] (ddb) at (0,0) {\small\bfseries ddb.c};
+
+    \node[inner sep=2mm,font=\small, text width=7cm] (ddb2) at (6,0) {
+    \textbf{\#ifdef} DDB\\
+    \textbf{\#ifndef} KDB\\
+    \textbf{\#error} KDB must be enabled for DDB to work!\\
+    \textbf{\#endif}\\
+    \textbf{\#endif}};
+
+    \draw[dotted,thick,color=black!80] (ddb) edge[bend left=11.25] (ddb2.south west);
+    \draw[dotted,thick,color=black!80] (ddb2.south west) -- ++(.5,0);
+
+    \draw[dotted,thick,color=black!80] (ddb) edge[bend right=11.25] (ddb2.north west);
+    \draw[dotted,thick,color=black!80] (ddb2.north west) -- ++(.5,0);
+  \end{tikzpicture}
+

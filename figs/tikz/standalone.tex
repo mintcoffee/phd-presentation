@@ -8,6 +8,8 @@
 \usepackage{amsmath}
 \usepackage[bitstream-charter,cal=cmcal]{mathdesign} %font
 \usepackage[scale=.93]{tgheros}
+\usepackage{tikz}
+\usepackage{pgf}
 
 \usetikzlibrary{matrix,calc,arrows,positioning,fit,backgrounds,shadows,intersections,shapes}
 
@@ -19,6 +21,8 @@
     feature/.style={draw, inner sep=1.5mm, font=\small\sffamily, fill=white, drop shadow, minimum height=1em},
     opt/.style={fill=white},
     man/.style={fill=black}}
+
+\tikzset{file/.style={draw, rounded corners,minimum height=1.6cm,text width=1cm, text centered, drop shadow,fill=blue!15}}
 
 \tikzset{%
         stage/.style={draw, dashed, inner sep=.5em},

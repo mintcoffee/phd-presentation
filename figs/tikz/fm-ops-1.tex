@@ -1,0 +1,41 @@
+  \begin{tikzpicture}
+    \node[file] (fm1) {FM$_1$};
+
+    \begin{scope}[node distance=.5cm,font=\scriptsize]
+      \node[feature,right=1cm of fm1,yshift=.5cm] (spl1) {SPL$_1$};
+      \matrix (sub)[below=of spl1, ampersand replacement=\&, column sep=3mm, row sep=0mm]{
+        \node[feature] (a) {A}; \&
+        \node[feature] (b) {B}; \\
+      };
+      \draw (spl1.south) -- (a.north); \draw (spl1.south) -- (b.north);
+      \draw[opt] (a.north) circle (.8mm);
+      \draw[opt] (b.north) circle (.8mm);
+    \end{scope}
+    \node (fm12) [fit=(spl1) (a) (b)] {};
+
+    \draw[dotted,thick,color=black!80] (fm1) edge[bend left=11.25] (fm12.south west);
+    \draw[dotted,thick,color=black!80] (fm12.south west) -- ++(.5,0);
+    \draw[dotted,thick,color=black!80] (fm1) edge[bend right=11.25] (fm12.north west);
+    \draw[dotted,thick,color=black!80] (fm12.north west) -- ++(.5,0);
+
+    \node[file,right=4cm of fm1] (fm2) {FM$_2$};
+
+    \begin{scope}[node distance=.5cm,font=\scriptsize]
+      \node[feature,right=1cm of fm2,yshift=.5cm] (spl2) {SPL$_2$};
+      \matrix (sub)[below=of spl2, ampersand replacement=\&, column sep=3mm, row sep=0mm]{
+        \node[feature] (b) {A}; \&
+        \node[feature] (c) {C}; \\
+      };
+      \draw (spl2.south) -- (b.north);
+      \draw (spl2.south) -- (c.north);
+      \draw[opt] (b.north) circle (.8mm);
+      \draw[opt] (c.north) circle (.8mm);
+    \end{scope}
+    \node (fm22) [fit=(spl2) (b) (c)] {};
+
+    \draw[dotted,thick,color=black!80] (fm2) edge[bend left=11.25] (fm22.south west);
+    \draw[dotted,thick,color=black!80] (fm22.south west) -- ++(.5,0);
+    \draw[dotted,thick,color=black!80] (fm2) edge[bend right=11.25] (fm22.north west);
+    \draw[dotted,thick,color=black!80] (fm22.north west) -- ++(.5,0);
+  \end{tikzpicture}
+

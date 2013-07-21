@@ -1,0 +1,33 @@
+  \begin{tikzpicture}[node distance=1cm]
+    \node[draw, rounded corners,minimum height=1.6cm,text width=1cm, text centered, drop shadow,fill=blue!15] (a) {\small\bfseries Model$_1$};
+    \node[inner sep=2mm,right=.5cm of a, font=\footnotesize\rmfamily, text width=3cm] (a2) {
+    Student\\
+    \hspace{1em}name: String\\
+    \hspace{1em}age: Int\\
+    \hspace{1em}\color{red}degree: String};
+
+    \draw (a) edge[bend left=11.25] (a2.south west);
+    \draw (a2.south west) -- ++(.5,0);
+    \draw (a) edge[bend right=11.25] (a2.north west);
+    \draw (a2.north west) -- ++(.5,0);
+
+
+    \node[draw, rounded corners,minimum height=1.6cm,text width=1cm, text centered, drop shadow,fill=blue!15,right=.75cm of a2] (b) {\small\bfseries Model$_2$};
+    \node[inner sep=2mm,right=.5cm of b, font=\footnotesize\rmfamily, text width=3cm] (b2) {
+    Student\\
+    \hspace{1em}name: String\\
+    \hspace{1em}age: Int\\
+    \hspace{1em}\color{red}program: String};
+
+    \begin{scope}[dotted,thick,color=black!80]
+    \draw (b) edge[bend left=11.25] (b2.south west);
+    \draw (b2.south west) -- ++(.5,0);
+    \draw (b) edge[bend right=11.25] (b2.north west);
+    \draw (b2.north west) -- ++(.5,0);
+    \end{scope}
+
+    \node[below=of a,xshift=4.5cm,yshift=.5cm,align=center,font=\small] (vp) {Variation Point\\(Alternatives)};
+    \draw[-latex']  (vp) -| (a2.south);
+    \draw[-latex']  (vp) -| (b2.south);
+  \end{tikzpicture}
+

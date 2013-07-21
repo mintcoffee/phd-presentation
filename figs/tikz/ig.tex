@@ -1,0 +1,26 @@
+  \begin{tikzpicture}
+    \node (pm) {pm};
+    \node[right=2em of pm,yshift=-1em] (acpi) {acpi};
+    \node[below=of acpi,xshift=1.75em,yshift=1.25em] (system) {acpi\_system};
+    \node[left=2em of pm,yshift=-1em] (cpu) {cpu\_freq};
+    \node[below=of cpu,xshift=-2.5em] (perf) {performance};
+    \node[below=of cpu,yshift=-2.5em] (power) {powersave};
+    \node[right=of power] (hotplug) {cpu\_hotplug};
+
+    \draw[-stealth'] (acpi) -- (pm);
+    \draw[-stealth'] (system) -- (pm);
+    \draw[stealth'-stealth'] (acpi) -- (system);
+    \draw[-stealth'] (hotplug) -- (system);
+    \draw[-stealth'] (hotplug) edge[bend left] (acpi);
+    \draw[-stealth'] (hotplug) -- (power);
+    \draw[-stealth'] (power) edge[bend right] (cpu);
+    \draw[-stealth'] (perf) -- (cpu);
+    \draw[-stealth'] (cpu) -- (pm);
+
+    \begin{scope}[-stealth']
+      \draw (hotplug) -- (pm);
+      \draw (hotplug) -- (cpu);
+      \draw (perf) -- (pm);
+      \draw (power) -- (pm);
+    \end{scope}
+  \end{tikzpicture}

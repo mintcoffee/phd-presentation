@@ -1,0 +1,30 @@
+  \begin{tikzpicture}
+    \node[file,fill=green!15] (fm) {FM'};
+
+    \begin{scope}[node distance=.5cm,font=\scriptsize]
+      \node[feature,right=1cm of fm,yshift=.5cm] (spl) {SPL$_1 \cup$ SPL$_2$};
+      \matrix (sub)[below=of spl, ampersand replacement=\&, column sep=3mm, row sep=0mm]{
+        \node[feature] (a) {A}; \&
+        \node[feature] (b) {B}; \&
+        \node[feature] (c) {C}; \\
+      };
+      \draw (spl.south) -- (a.north);
+      \draw (spl.south) -- (b.north);
+      \draw (spl.south) -- (c.north);
+      \draw[opt] (a.north) circle (.6mm);
+    \end{scope}
+
+    %Group arc
+    \begin{scope}
+      \path[clip] (spl.south) -- (b.north) -- (c.north) -- cycle;
+      \draw (spl.south) circle (.5cm);
+    \end{scope}
+
+    \node (fm2) [fit=(spl) (a) (b)] {};
+
+    \draw[dotted,thick,color=black!80] (fm) edge[bend left=11.25] (fm2.south west);
+    \draw[dotted,thick,color=black!80] (fm2.south west) -- ++(.5,0);
+    \draw[dotted,thick,color=black!80] (fm) edge[bend right=11.25] (fm2.north west);
+    \draw[dotted,thick,color=black!80] (fm2.north west) -- ++(.5,0);
+  \end{tikzpicture}
+
