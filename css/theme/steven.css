@@ -31,6 +31,14 @@
   margin-top: .3em; }
   .reveal ul > li:first-child, .reveal ol > li:first-child {
     margin-top: 0; }
+.reveal dl > dt {
+  font-family: "Oswald", sans-serif;
+  text-align: left;
+  margin-bottom: .5em; }
+.reveal dl > dd {
+  text-align: left;
+  margin-left: 2em;
+  margin-bottom: .5em; }
 .reveal .lead {
   text-align: center;
   margin: 40px; }

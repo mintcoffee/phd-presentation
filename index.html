@@ -107,7 +107,17 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 					<section>
 						<h2>Benefits</h2>
+
+						<p class="lead">
 						Feature models describe the common and variable characteristics of products in a product line.
+						</p>
+
+
+						<ul>
+							<li>First introduced by Kang et al.</li>
+							<li>TODO</li>
+						</ul>
+
 					</section>
 					<section>
 						<h2>Feature Model Syntax</h2>
@@ -144,6 +154,9 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</div>
 						<ul class="bigskip">
 							<li>Input consists of variants describing a product line.</li>
+							<li>e.g., model variants, products developed by cloning code.</li>
+							<li>Variants are compared and Variation Points (VPs) identified.</li>
+							<li>VPs and VP configurations used as input for synthesis.</li>
 						</ul>
 					</section>
 
@@ -154,18 +167,20 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</div>
 						<ul class="bigskip">
 							<li>Input consists of source code containing variability.</li>
-							<li>e.g., FreeBSD</li>
+							<li>e.g., FreeBSD with #ifdef annotated code.</li>
+							<li>Static analysis of #ifdef identifies code fragments as VPs and dependencies between VPs.</li>
 						</ul>						
 					</section>
 
 					<section>
 						<h2>Feature Model Operations</h2>
 						<div class="text-center">
-							<img class="no-border" src="figs/fm-ops-1.tex.svg" style="zoom: 2;" alt=""><br>
-							<img class="no-border" src="figs/fm-ops-2.tex.svg" style="zoom: 2;" alt=""><br>							
+							<img class="no-border" src="figs/fm-ops-1.tex.svg" style="zoom: 1.6;" alt=""><br>
+							<img class="no-border" src="figs/fm-ops-2.tex.svg" style="zoom: 1.6;" alt="">							
 						</div>
 						<ul class="bigskip">
 							<li>Input consists of feature models.</li>
+							<li>Feature models translated to a prop. formula by configuration semantics.</li>
 						</ul>
 					</section>
 
@@ -174,32 +189,42 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<h2>Publications</h2>
 
 						<ul>
-							<li>VARY 2012 paper</li>
+							<li>VARY 2012 paper.</li>
+							<li>Classified scenarios from roughly 20 papers into 4 categories based on their input artifacts.</li>
+							<li>Derived 6 workflows showing commonality and difference between synthesis scenarios.</li>
+							<li>Derived requirements for feature model synthesis algorithms.</li>
 						</ul>
 					</section>
 
 				</section>
 
+
+
+
+
+
 				<section>
-
 					<section>
-						<h2>Challenges of Feature Model Synthesis</h2>
+						<h2>Challenges of FM Synthesis</h2>
 
-						<ul>
-							<li>Deriving a model that is complete with respect to the input dependencies</li>
-							<li>Scalability</li>
-							<li>Different models for the same input</li>
-						</ul>
+						<dl>
+							<dt>Maximality and Completeness</dt>
+							<dd>Synthesize a feature diagram that is <strong>maximally complete</strong> w.r.t. input configurations.</dd>
+							<dt>Scalability</dt>
+							<dd>Support thousands of features (e.g., Linux, eCos, FreeBSD)</dd>
+							<dt>Support Derivation of a Feature Hierarchy</dt>
+							<dd>Many possible feature diagrams that are complete w.r.t. input configurations.</dd>
+						</dl>
 					</section>
 
 					<section>
-						<h2>Soundness and Completeness</h2>
+						<h2>Completeness</h2>
 
 						<p style="width: 400px; margin: auto;">
 							{ OS, staging }<br>
 							{ OS, staging, net}<br>
 							{ OS, staging, net, dst}
-						</p>						
+						</p>
 
 						<div style="float: left; width: 35%; margin-right: .5%; height: 350px; text-align: center;">
 						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
@@ -216,29 +241,43 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 
+
+					<section>
+						<h2>Maximality</h2>
+
+						<p style="width: 400px; margin: auto;">
+							{ OS, staging }<br>
+							{ OS, staging, net}<br>
+							{ OS, staging, net, dst}
+						</p>
+
+						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
+							<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width:45%;">(a) Non-maximal</div>
+						</div>
+
+						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
+							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width:45%;">(b) Maximal</div>	
+						</div>
+					</section>
+
+
 					<section>
 						<h2>Same Configurations, Different Hierarchies</h2>
-
-						<div style="float: left; width: 39%; margin-right: .5%; height: 300px; margin-top: 120px;">
-						<p>
-						{ OS, staging }<br>
-						{ OS, staging, net }<br>
-						{ OS, staging, net, dst }</p>
+						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
+						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;">
+						<div class="caption" style="width:45%;">(a) Feature diagram</div>
 						</div>
-
-						<div style="float: left; width: 30%; margin-right: .5%; height: 300px; text-align: center;">
-						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2.5;">
-						<div class="caption">(a) Feature diagram</div>
-						</div>
-						<div style="float: left; width: 30%; height: 300px; text-align: center;">
-						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2.5;">
-						<div class="caption" style="width:32%;">(b) Same configs</div>
+						<div style="float: left; width: 45%; height: 350px; text-align: center;">
+						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2;">
+						<div class="caption" style="width:45%;">(b) Same configs</div>
 						</div>
 						<div class="clearfix"></div>
 					</section>
 
 					<section>
-						<h2>Solution: Feature Graph</h2>
+						<h2>Feature Graph</h2>
  						<div class="text-center">
 						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 3;">
 						</div>

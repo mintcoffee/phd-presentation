@@ -86,6 +86,17 @@ $accentColor: #474497;
 		}
 	}
 
+	dl>dt {
+		font-family: $headingFont;
+		text-align: left;
+		margin-bottom: .5em;
+	}
+	dl>dd {
+		text-align: left;
+		margin-left: 2em;
+		margin-bottom: .5em;
+	}
+
 
 	.lead {
 		text-align: center;
