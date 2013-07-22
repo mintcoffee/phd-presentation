@@ -14,11 +14,11 @@
 
 // Include theme-specific fonts
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
 
 
 // Override theme settings (see ../template/settings.scss)
-$mainFont: 'PT Sans', sans-serif;
+$mainFont: 'Source Sans Pro', sans-serif;
 $mainColor: #333;
 $headingFont: 'Oswald', sans-serif;
 $headingColor: #333;
@@ -45,15 +45,6 @@ $accentColor: #474497;
 }
 
 .reveal {
-	h1 {
-		font-size: 2.5em;
-		margin-bottom: .5em !important;
-	}
-
-	h2 {
-		margin-bottom: .5em !important;
-	}
-
 	h1, h2, h3, h4, h5, h6 {
 		text-transform: none !important;
 	}
@@ -87,8 +78,8 @@ $accentColor: #474497;
 	}
 
 	dl>dt {
-		font-family: $headingFont;
 		text-align: left;
+		font-weight: bold;
 		margin-bottom: .5em;
 	}
 	dl>dd {
@@ -113,7 +104,20 @@ $accentColor: #474497;
 	  font-family: "Oswald", sans-serif;
 	  font-size: .6em !important;
 	}
+
+	.bg {
+		background-color: lighten($selectionBackgroundColor, 50%);
+		padding: 10px;
+	}
+	.caption {
+	  text-align: center;
+	  line-height: 1;
+	  font-size: .8em;
+	  position: absolute;
+	  bottom: 0;
+	}
 }
+
 
 .smallskip {
 	margin-bottom: .5em !important;
@@ -131,11 +135,6 @@ $accentColor: #474497;
 	text-align: center !important;
 }
 
-.caption {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-}
 
 // Theme template ------------------------------
 @import "../template/theme";

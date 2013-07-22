@@ -12,8 +12,7 @@ body {
 .reveal {
 	font-family: $mainFont;
 	font-size: $mainFontSize;
-	font-weight: 200;
-	letter-spacing: -0.02em;
+	font-weight: 400;
 	color: $mainColor;
 }
 
@@ -33,10 +32,9 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-	margin: 0 0 20px 0;
+	margin: 0 0 10px 0;
 	color: $headingColor;
 
-	font-family: $headingFont;
 	line-height: $headingLineHeight;
 	letter-spacing: $headingLetterSpacing;
 
@@ -45,6 +43,7 @@ body {
 }
 
 .reveal h1 {
+	font-family: $headingFont;
 	text-shadow: $heading1TextShadow;
 }
 

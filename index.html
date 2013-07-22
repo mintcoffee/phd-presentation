@@ -103,25 +103,21 @@ options INET6        #IPv6 communications protocols</code></pre>
 				<section>
 					<section>
 						<h2>Feature Models</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" width="140%">
-					</section>
-					<section>
-						<h2>Benefits</h2>
-
-						<p class="lead">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.2;">
+						<p class="text-center">
 						Feature models describe the common and variable characteristics of products in a product line.
 						</p>
-
-
 						<ul>
 							<li>First introduced by Kang et al.</li>
-							<li>TODO</li>
+							<li>Describe a set of <em>legal configurations</em>.</li>
 						</ul>
 
 					</section>
 					<section>
 						<h2>Feature Model Syntax</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" width="140%">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.7;">
+
+						$$\mathsf{powersave} \land \mathsf{acpi} \rightarrow \mathsf{cpu\_hotplug}$$
 					</section>
 				</section>
 
@@ -134,7 +130,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 							and design of a feature model given a set of features and legal combinations of features.
 						</p>
 
-						<img class="no-border" src="figs/flow.tex.svg" width="100%">
+						<img class="no-border" src="figs/flow.tex.svg" style="zoom: 1.5;">
 
 					</section>
 
@@ -168,7 +164,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<ul class="bigskip">
 							<li>Input consists of source code containing variability.</li>
 							<li>e.g., FreeBSD with #ifdef annotated code.</li>
-							<li>Static analysis of #ifdef identifies code fragments as VPs and dependencies between VPs.</li>
+							<li>Static analysis of #ifdef statements identifies code fragments as VPs and dependencies between VPs.</li>
 						</ul>						
 					</section>
 
@@ -219,24 +215,28 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 					<section>
 						<h2>Completeness</h2>
-
-						<p style="width: 400px; margin: auto;">
-							{ OS, staging }<br>
-							{ OS, staging, net}<br>
+						<div style="margin-top: -30px;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
 							{ OS, staging, net, dst}
 						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						</div>
+						<div class="clearfix"></div>
 
-						<div style="float: left; width: 35%; margin-right: .5%; height: 350px; text-align: center;">
+						<div style="float: left; width: 40%; margin-right: .5%; height: 330px; text-align: center;">
 						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption">(a) More configs<br>(complete)</div>
+						<div class="caption">(a) More configs (complete)</div>
 						</div>
-						<div style="float: left; width: 32%; height: 350px; text-align: center;">
+						<div style="float: left; width: 27%; height: 330px; text-align: center;">
 						<img src="figs/fd-less.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption">(b) Less configs<br>(sound)</div>
+						<div class="caption">(b) Less configs (sound)</div>
 						</div>
-						<div style="float: left; width: 32%; height: 350px; text-align: center;">
+						<div style="float: left; width: 32%; height: 330px; text-align: center;">
 						<img src="figs/fd-arbitrary.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption" style="width: 32%;">(c) Arbitrary<br>&nbsp;</div>
+						<div class="caption" style="width: 32%;">(c) Arbitrary</div>
 						</div>		
 					</section>
 
@@ -245,20 +245,24 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Maximality</h2>
 
-						<p style="width: 400px; margin: auto;">
-							{ OS, staging }<br>
-							{ OS, staging, net}<br>
+						<div style="margin-top: -30px;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
 							{ OS, staging, net, dst}
 						</p>
-
-						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
-							<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-							<div class="caption" style="width:45%;">(a) Non-maximal</div>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
 
-						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
-							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;">
-							<div class="caption" style="width:45%;">(b) Maximal</div>	
+						<div style="display:inline-block; position: relative; margin-right: 10%; height: 330px; text-align: center; vertical-align: top;">
+							<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption">(a) Non-maximal</div>
+						</div>
+
+						<div style="display: inline-block; position: relative; height: 330px; text-align: center; vertical-align: top;">
+							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"><br>
+							<div class="caption">(b) Maximal</div>	
 						</div>
 					</section>
 
@@ -279,14 +283,75 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Feature Graph</h2>
  						<div class="text-center">
-						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 3;">
+						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5;">
 						</div>
 						<div class="clearfix"></div>
 
 						<ul>
-							<li>Describes <strong>all</strong> feature diagrams that are complete w.r.t. input</li>
-							<li>$$\varphi \rightarrow [[FG]]$$</li>
+							<li>Relaxed feature diagram notation with a DAG as hierarchy, and overlapping feature groups</li>
+							<li>Encapsulates all feature diagrams that are complete w.r.t. input configurations.</li>
 						</ul>
+					</section>
+
+
+					<section>
+						<h2>Feature Graph Extraction</h2>
+
+						<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
+
+						<ul>
+							<li>Automatic algorithm that synthesizes a feature graph given a formula in CNF or DNF.</li>
+
+							<li>DNF formula for variants or configurations.</li>
+							<li>CNF formula for dependencies.</li>
+							<li>Algorithm uses a SAT solver.</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Two Crucial Steps</h2>
+						<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
+
+						<dl>
+							<dt>DAG Hierarchy Recovery</dt>
+
+							<dd>Recovers the hierarchy in the form of an Implication Graph</dd>
+
+						<dt>Group and CTC Recovery</dt>
+							<dd>Recovers feature groups and cross-tree constraints</dd>
+						</dl>
+
+						(See Andrzej's slides)
+					</section>
+					
+
+					<section>
+						<h2 class="bigskip">DAG Hierarchy Recovery</h2>
+
+						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
+							<div style="font-size: 3em;">\[ \varphi \]</div>
+						</div>
+						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
+							<div style="font-size: 3em;">\[ \rightarrow \]</div>
+						</div>
+						<div style="display: inline-block; vertical-align: middle;">
+							<img src="figs/ig.tex.svg" alt="" style="zoom: 1.8;" class="no-border"><br>
+						</div>
+						<div style="clear: both;" class="bigskip"></div>
+
+
+						<ul>
+							<li>Given a Propositional formula, builds an Implication Graph.</li>
+							<li>The Implication Graph describes all possible hierarchies.</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Group and CTC Recovery</h2>
+
+						TODO
 					</section>
 
 

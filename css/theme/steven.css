@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
 /**
  * Sky theme for reveal.js.
  *
@@ -8,11 +8,6 @@
 .reveal a:not(.image) {
   line-height: 1.3em; }
 
-.reveal h1 {
-  font-size: 2.5em;
-  margin-bottom: .5em !important; }
-.reveal h2 {
-  margin-bottom: .5em !important; }
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   text-transform: none !important; }
 .reveal section img {
@@ -32,8 +27,8 @@
   .reveal ul > li:first-child, .reveal ol > li:first-child {
     margin-top: 0; }
 .reveal dl > dt {
-  font-family: "Oswald", sans-serif;
   text-align: left;
+  font-weight: bold;
   margin-bottom: .5em; }
 .reveal dl > dd {
   text-align: left;
@@ -51,6 +46,15 @@
   margin-left: -50px;
   font-family: "Oswald", sans-serif;
   font-size: .6em !important; }
+.reveal .bg {
+  background-color: #98c5ee;
+  padding: 10px; }
+.reveal .caption {
+  text-align: center;
+  line-height: 1;
+  font-size: .8em;
+  position: absolute;
+  bottom: 0; }
 
 .smallskip {
   margin-bottom: .5em !important; }
@@ -63,11 +67,6 @@
 
 .text-center {
   text-align: center !important; }
-
-.caption {
-  text-align: center;
-  position: absolute;
-  bottom: 0; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -83,10 +82,9 @@ body {
   background-color: #f7fbfc; }
 
 .reveal {
-  font-family: "PT Sans", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 36px;
-  font-weight: 200;
-  letter-spacing: -0.02em;
+  font-weight: 400;
   color: #333333; }
 
 ::selection {
@@ -103,15 +101,15 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   color: #333333;
-  font-family: "Oswald", sans-serif;
   line-height: 1.2em;
   letter-spacing: -0.04em;
-  text-transform: uppercase;
+  text-transform: none;
   text-shadow: none; }
 
 .reveal h1 {
+  font-family: "Oswald", sans-serif;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
 
 /*********************************************
