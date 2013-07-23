@@ -55,21 +55,18 @@
 					<section>
 						<h2>Motivation</h2>
 
-						<p class="bigskip">Large software systems contain variability
+						<p class="bigskip lead">Large software systems contain variability
 						embedded in <em>documentation</em>, <em>design</em> and <em>implementation</em>.</p>
 
-						<img class="no-border" src="figs/freebsd.png">
+						<div style="display: inline-block; vertical-align: middle;">e.g.,</div>
+						<div style="display: inline-block; vertical-align: middle;"><img class="no-border" src="figs/freebsd.png"></div>
 					</section>
 
 					<section>
 						<h2>Documentation</h2>
 
-						<div class="prettify"> <p>STACK enables the stack(9) facility... <strong>stack(9) will also be compiled	in automatically if DDB(4) is compiled into the kernel</strong>.</p>
+						<div class="prettify bigskip"> <p>STACK enables the stack(9) facility... <strong>stack(9) will also be compiled	in automatically if DDB(4) is compiled into the kernel</strong>.</p>
 						</div>
-
-					</section>
-
-					<section>
 						<h2>Source Code</h2>
 						<div class="prettify">
 <pre><code>#ifdef DDB
@@ -79,6 +76,7 @@
 #endif
 </code></pre>
 						</div>
+
 					</section>
 
 					<section>
@@ -103,7 +101,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 				<section>
 					<section>
 						<h2>Feature Models</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.4;">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.6;">
 						<p class="text-center">
 						Feature models describe the common and variable characteristics of products in a product line.
 						</p>
@@ -115,7 +113,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 					<section>
 						<h2>Feature Model Syntax</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.7;">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.6;">
 
 						$$\mathsf{powersave} \land \mathsf{acpi} \rightarrow \mathsf{cpu\_hotplug}$$
 					</section>
@@ -123,8 +121,8 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 					<section>
 						<h2>Configuration Semantics</h2>
-						<p class="lead">Feature models describe a set of legal configurations.</p>
-						<ul class="medskip">
+						<p class="lead">Feature models describe a set of<br> <strong>legal configurations</strong>.</p>
+						<ul class="smallskip">
 							<li>FMs translate to a propositional formula, \(\varphi\).</li>
 							<li>Satisfying assignments are the legal configurations.</li>
 						</ul>
@@ -154,7 +152,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 							and design of a feature model given a set of features and legal combinations of features.
 						</p>
 
-						<img class="no-border" src="figs/flow.tex.svg" style="zoom: 1.5;">
+						<img class="no-border" src="figs/flow.tex.svg" style="zoom: 1.8;">
 
 					</section>
 
@@ -209,19 +207,16 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 					<section>
 						<h2>Requirements for FM Synthesis</h2>
-
-
 						<dl>
-							<dt>Synthesis Input</dt>
-							<dd>As (1) Configurations, or (2) Dependencies.</dd>
-							<dt>Hierarchy</dt>
-							<dd>User input or automated heuristics needed to select a distinct feature hierarchy.</dd>
-							<dt>Soundness and Completeness</dt>
-							<dd>Derive an exact FM with a maximal Feature Diagram.</dd>
-							<dt>Scalability</dt>
+							<dt>Input</dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt>Sound and Complete</dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
 							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
 						</dl>
-
 					</section>
 
 
@@ -230,22 +225,17 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 				<section>
 					<section>
-						<h2>Thesis Statement</h2>
+						<h2 class="bigskip">Thesis Statement</h2>
 
-						<p> We <em>efficiently synthesize</em> <em>feature models</em> with <em>thousands of features</em> by <em>identifying relevant features for building the feature hierarchy</em> and combining <em>reasoning on propositional formulas</em> with <em>textual similarity heuristics</em>.
+						<p class="lead">We efficiently synthesize <strong>large scale feature models</strong><br> with algorithms that use<br><em>SAT-based reasoning on propositional formulas</em> and<br>
+						that suggest a <strong>feature hierarchy</strong> with<br> <em>textual similarity heuristics</em>.
 						</p>
 					</section>
 
 					<section>
-						<h2>Contributions</h2>
-						<ol style="margin-top: 50px;">
-							<li><em>Motivation</em></li>
-							<li><em>Feature Model Synthesis Scenarios</em></li>
-							<li><strong>Feature Graph Extraction</strong>
-								<ul>
-									<li>Challenges of FM Synthesis</li>
-								</ul>
-							</li>
+						<h2 class="bigskip">Contributions</h2>
+						<ol class="large">
+							<li>Feature Graph Extraction</li>
 							<li>Feature Tree Synthesis</li>
 							<li>Analysis of the Linux Kconfig Language</li>
 						</ol>
@@ -257,15 +247,20 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 				<section>
 					<section>
-						<h2>Challenges of FM Synthesis</h2>
+						<h1>Feature Graph Extraction</h1>
+					</section>
 
+					<section>
+						<h2>Requirements for FM Synthesis</h2>
 						<dl>
-							<dt>Sound and Complete Synthesis</dt>
-							<dd>Synthesize a feature diagram that is <strong>maximally complete</strong> w.r.t. input configurations. FIXME</dd>
-							<dt>Scalability</dt>
-							<dd>Support thousands of features (e.g., Linux, eCos, FreeBSD)</dd>
-							<dt>Support Derivation of a Feature Hierarchy</dt>
-							<dd>Many possible feature diagrams that are complete w.r.t. input configurations.</dd>
+							<dt>Input</dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt><strong class="alert">Sound and Complete</strong></dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
 						</dl>
 					</section>
 
@@ -359,44 +354,156 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
 
-						<div style="display:inline-block; height: 330px; text-align: center; width: 40%; vertical-align: top;">
+						<div style="display:inline-block; height: 300px; text-align: center; width: 40%; vertical-align: top;">
 							<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+						\[ 
+							\mathsf{dst} \rightarrow \mathsf{net} \\
+						\]							
 							<div class="caption" style="width: 40%;">Non-maximal FD</div>
 						</div>
 
-						<div style="display: inline-block; height: 330px; text-align: center; vertical-align: top; width: 40%;">
-							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"><br>
+						<div style="display: inline-block; height: 300px; text-align: center; vertical-align: top; width: 40%;">
+							<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2;"><br>
 							<div class="caption" style="width: 40%;">Maximal FD</div>	
 						</div>
 					</section>
 
 
 					<section>
-						<h2>Same Configurations, Different Hierarchies</h2>
-						<div style="float: left; width: 45%; margin-right: .5%; height: 350px; text-align: center;">
-						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption" style="width:45%;">(a) Feature diagram</div>
+						<h2>Same Configs, Diff. Hierarchies</h2>
+
+						<div style="margin-top: -30px;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
+							{ OS, staging, net, dst}
+						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
-						<div style="float: left; width: 45%; height: 350px; text-align: center;">
-						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption" style="width:45%;">(b) Same configs</div>
+
+						<div style="display: inline-block; height: 300px; text-align: center; vertical-align: top; width: 32%;">
+							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width:32%;">FD<sub>1</sub></div>
 						</div>
-						<div class="clearfix"></div>
+						<div style="display: inline-block; height: 300px; text-align: center; vertical-align: top; width: 32%;">
+							<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width:32%;">FD<sub>2<w/sub></div>
+						</div>
+						<div style="display: inline-block; height: 300px; text-align: center; vertical-align: top; width: 32%;">
+							<img src="figs/fd-3.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width:32%;">FD<sub>3</sub></div>
+						</div>						
 					</section>
 
 					<section>
 						<h2>Feature Graph</h2>
- 						<div class="text-center">
+
+						<div style="margin-top: -30px;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
+							{ OS, staging, net, dst}
+						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						</div>
+
+						<div class="medskip"></div>
+
+ 						<div style="float: left; width: 300px; margin-right: 20px;">
 						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5;">
 						</div>
-						<div class="clearfix"></div>
-
-						<ul>
-							<li>Relaxed feature diagram notation with a DAG as hierarchy, and overlapping feature groups</li>
-							<li>Encapsulates all feature diagrams that are complete w.r.t. input configurations.</li>
+						<ul style="float: left; width: 600px; margin-top: 30px;">
+							<li>Encapsulates all diagrams that are complete.</li>
+							<li>DAG as hierarchy, and overlapping feature groups.</li>
 						</ul>
+						<div class="clearfix"></div>
 					</section>
 
+
+					<section>
+						<h2>Requirements for FM Synthesis</h2>
+						<dl>
+							<dt><strong class="alert">Input</strong></dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt>Sound and Complete</dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
+						</dl>
+					</section>
+
+					<section>
+						<h2 class="bigskip">DNF Input</h2>
+
+						<div style="margin-top: -30px; display: inline-block; vertical-align: middle;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
+							{ OS, staging, net, dst}
+						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						</div>
+
+						<div style="display: inline-block; vertical-align: middle; font-size: 1.5em;">
+						\( \mapsto \)
+						</div>
+
+						<div style="display: inline-block; width: 400px; vertical-align: middle; font-size: .9em;">\[
+							\begin{aligned}
+							&amp;(\mathsf{OS} \land \mathsf{staging}) \lor \\
+							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} ) \lor \\
+							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} \land \mathsf{dst})
+							\end{aligned}
+						\]</div>
+						<p class="lead"><strong class="alert">A set of configurations</strong> represented as a DNF formula.</p>
+					</section>
+
+					<section>
+						<h2 class="bigskip">CNF Input</h2>
+
+						<p style="display: inline-block; font-size: 5em; font-weight: 200; vertical-align: middle;">{</p>
+						<div style="display: inline-block; vertical-align: middle; font-size: .9em;">\[
+							\begin{aligned}
+							\mathsf{staging} \lor \mathsf{net} &amp;\rightarrow \mathsf{OS} \\
+							\mathsf{dst} &amp;\rightarrow \mathsf{net} \\
+							\mathsf{OS} &amp;\rightarrow \mathsf{staging}
+							\end{aligned}
+						\]</div>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;  vertical-align: middle;">}</p>
+
+						<div style="display: inline-block; vertical-align: middle; font-size: 1.5em;">
+						\( \mapsto \)
+						</div>
+						<div style="display: inline-block; vertical-align: middle; font-size: .9em;" class="smallskip">\[
+							\begin{aligned}
+							&amp;(\lnot\mathsf{staging} \lor \mathsf{OS}) \land \\
+							&amp;(\lnot\mathsf{net} \lor \mathsf{OS}) \land \\
+							&amp;(\lnot \mathsf{dst} \lor \mathsf{net}) \land \\
+							&amp;(\lnot\mathsf{OS} \lor \mathsf{staging})
+							\end{aligned}
+						\]</div>						
+
+						<p class="lead"><strong class="alert">Dependencies</strong> represented as a CNF Formula.</p>
+					</section>
+
+					<section>
+						<h2>Requirements for FM Synthesis</h2>
+						<dl>
+							<dt><strong class="alert">Input</strong></dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt><strong class="alert">Sound and Complete</strong></dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
+						</dl>
+					</section>
 
 					<section>
 						<h2>Feature Graph Extraction</h2>
@@ -404,10 +511,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
 
 						<ul>
-							<li>Automatic algorithm that synthesizes a feature graph given a formula in CNF or DNF.</li>
-
-							<li>DNF formula for variants or configurations.</li>
-							<li>CNF formula for dependencies.</li>
+							<li>Synthesizes a feature graph given a formula in CNF or DNF.</li>
 							<li>Algorithm uses a SAT solver.</li>
 						</ul>
 					</section>
@@ -420,13 +524,11 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<dl>
 							<dt>DAG Hierarchy Recovery</dt>
 
-							<dd>Recovers the hierarchy as an Implication Graph</dd>
+							<dd>Recovers the hierarchy as an Implication Graph.</dd>
 
 						<dt>Group and CTC Recovery</dt>
-							<dd>Recovers feature groups and cross-tree constraints</dd>
+							<dd>Recovers feature groups and cross-tree constraints.</dd>
 						</dl>
-
-						(See Andrzej's slides)
 					</section>
 					
 
@@ -464,6 +566,23 @@ options INET6        #IPv6 communications protocols</code></pre>
 						TODO
 					</section>
 
+					<section>
+						<h2>Requirements for FM Synthesis</h2>
+						<dl>
+							<dt>Input</dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt>Sound and Complete</dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt><strong class="alert">Scalable</strong></dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
+						</dl>
+					</section>
+
+					<section>
+						<h2>Experimental Evaluation</h2>
+					</section>
 
 					<section>
 						<h2>Contributions</h2>
@@ -473,9 +592,27 @@ options INET6        #IPv6 communications protocols</code></pre>
 							<li>SPLC Paper</li>
 						</ul>
 					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Requirements for FM Synthesis</h2>
+						<dl>
+							<dt>Input</dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt>Sound and Complete</dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt><strong class="alert">Hierarchy Selection</strong></dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
+						</dl>
+					</section>
+
 
 					<section>
-						<h2>Determining a Hierarchy</h2>
+						<h2>Selecting a Hierarchy</h2>
 
 						<div style="float: left; width: 32%; margin-right: 2%; height: 300px; padding-top: 53px; text-align: center;">
 						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> to
@@ -489,11 +626,11 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<div style="clear: both;" class="medskip"></div>
 
-						<p class="text-centers">How do we derive a single hierarchy out of all possible hierarchies?</p>
+						<p class="text-center">How do we derive a single hierarchy out of all possible hierarchies?</p>
 					</section>
 
 					<section>
-						<h2>Supporting to Large Input</h2>
+						<h2>Supporting Large Models</h2>
 
 						<ul>
 							<li><span style="display: block; float: left; width: 300px;">FreeBSD v8.0</span> 1203 features</li>
@@ -503,9 +640,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<img src="figs/ig.tex.svg" class="no-border" style="zoom: 2; vertical-align: middle; margin-right: 10px;"> 
 
-
 						<p class="text-center">Many possible tree hierarchies for a given input.</p>
-
 					</section>
 
 					<section>

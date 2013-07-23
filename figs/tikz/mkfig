@@ -1,2 +1,4 @@
 #!/bin/sh
-sed "s/__FILE__/$1/" standalone.tex | pdflatex -shell-escape
+rm texput*
+sed "s/__FILE__/$1/" standalone.tex > temp.tex
+latexmk -pdf -shell-escape temp.tex

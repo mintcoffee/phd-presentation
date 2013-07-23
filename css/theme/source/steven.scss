@@ -10,19 +10,8 @@
 @import "../template/settings";
 // ---------------------------------------------
 
-
-
-// Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
-
-
 // Override theme settings (see ../template/settings.scss)
-$mainFont: 'Source Sans Pro', sans-serif;
 $mainColor: #333;
-$headingFont: 'Oswald', sans-serif;
-$headingColor: #333;
-$headingLetterSpacing: -0.04em;
 $headingLineHeight: 1.2em;
 $headingTextShadow: none;
 $backgroundColor: #f7fbfc;
@@ -31,7 +20,7 @@ $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: #134674;
 
 // Color Scheme
-$bgColor: #cdd9e4;
+$bgColor: white;
 $accentColor: #474497;
 
 // Fix links so they are not cut off
@@ -41,7 +30,7 @@ $accentColor: #474497;
 
 // Background generator
 @mixin bodyBackground() {
-	@include radial-gradient( #cdd9e4, #f7fbfc );
+	@include radial-gradient( #eee, #fff );
 }
 
 .reveal {
@@ -78,20 +67,25 @@ $accentColor: #474497;
 	}
 
 	dl>dt {
+		font-family: $headingFont;
+		font-size: 1.05em;
 		text-align: left;
-		font-weight: bold;
-		margin-bottom: .5em;
+		margin-bottom: .25em;
 	}
 	dl>dd {
 		text-align: left;
+		font-size: .9em;
 		margin-left: 2em;
-		margin-bottom: .5em;
+		margin-bottom: 1em;
 	}
 
 
 	.lead {
 		text-align: center;
-		margin: 40px;
+		margin: 40px 10px;
+		font-size: 1.15em;
+		line-height: 1.5;
+
 	}
 
 	p.slide-number {
@@ -118,7 +112,10 @@ $accentColor: #474497;
 	}
 
 	.large {
-		font-size: 1.3em;
+		font-size: 1.2em;
+	}
+	.alert {
+		color: $accentColor;
 	}
 }
 

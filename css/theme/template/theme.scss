@@ -37,8 +37,6 @@ body {
 	font-weight: bold;
 
 	line-height: $headingLineHeight;
-	letter-spacing: $headingLetterSpacing;
-
 	text-transform: $headingTextTransform;
 	text-shadow: $headingTextShadow;
 }
@@ -46,6 +44,13 @@ body {
 .reveal h1 {
 	font-family: $headingFont;
 	text-shadow: $heading1TextShadow;
+	font-size: 2.5em;
+}
+
+.reveal h2 {
+	font-family: $headingFont;
+	font-size: 1.7em;
+	margin-bottom: .5em;
 }
 
 

@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic|Roboto+Slab:400,700);
 /**
  * Sky theme for reveal.js.
  *
@@ -27,16 +26,20 @@
   .reveal ul > li:first-child, .reveal ol > li:first-child {
     margin-top: 0; }
 .reveal dl > dt {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.05em;
   text-align: left;
-  font-weight: bold;
-  margin-bottom: .5em; }
+  margin-bottom: .25em; }
 .reveal dl > dd {
   text-align: left;
+  font-size: .9em;
   margin-left: 2em;
-  margin-bottom: .5em; }
+  margin-bottom: 1em; }
 .reveal .lead {
   text-align: center;
-  margin: 40px; }
+  margin: 40px 10px;
+  font-size: 1.15em;
+  line-height: 1.5; }
 .reveal p.slide-number {
   position: absolute;
   width: 100px;
@@ -56,7 +59,9 @@
   position: absolute;
   bottom: 0; }
 .reveal .large {
-  font-size: 1.3em; }
+  font-size: 1.2em; }
+.reveal .alert {
+  color: #474497; }
 
 .smallskip {
   margin-bottom: .5em !important; }
@@ -74,13 +79,13 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #cdd9e4;
-  background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #cdd9e4 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #cdd9e4));
-  background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #cdd9e4 100%);
-  background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #cdd9e4 100%);
-  background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #cdd9e4 100%);
-  background: radial-gradient(center, circle cover, #f7fbfc 0%, #cdd9e4 100%);
+  background: #eeeeee;
+  background: -moz-radial-gradient(center, circle cover, white 0%, #eeeeee 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #eeeeee));
+  background: -webkit-radial-gradient(center, circle cover, white 0%, #eeeeee 100%);
+  background: -o-radial-gradient(center, circle cover, white 0%, #eeeeee 100%);
+  background: -ms-radial-gradient(center, circle cover, white 0%, #eeeeee 100%);
+  background: radial-gradient(center, circle cover, white 0%, #eeeeee 100%);
   background-color: #f7fbfc; }
 
 .reveal {
@@ -104,16 +109,21 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 10px 0;
-  color: #333333;
+  color: black;
   font-weight: bold;
   line-height: 1.2em;
-  letter-spacing: -0.04em;
   text-transform: none;
   text-shadow: none; }
 
 .reveal h1 {
-  font-family: "Oswald", sans-serif;
-  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+  font-family: "Roboto Slab", sans-serif;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  font-size: 2.5em; }
+
+.reveal h2 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.7em;
+  margin-bottom: .5em; }
 
 /*********************************************
  * LINKS
