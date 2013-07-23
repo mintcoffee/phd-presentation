@@ -115,6 +115,9 @@ $accentColor: #474497;
 	.large {
 		font-size: 1.2em;
 	}
+	.small {
+		font-size: .9em;
+	}
 	.alert {
 		color: $accentColor;
 	}
@@ -129,6 +132,21 @@ $accentColor: #474497;
 			width: 48%;
 			margin-right: 1%;
 			vertical-align: top;
+		}
+	}
+
+	table {
+		border-top: 5px solid black;
+		border-bottom: 5px solid black;
+		border-collapse:collapse;
+		td {
+			font-size: .8em;
+			border: 0;
+		}
+		thead {
+			td {
+				border-bottom: 3px solid black;
+			}
 		}
 	}
 }
@@ -169,6 +187,10 @@ $accentColor: #474497;
 
 .text-left {
 	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
 }
 
 

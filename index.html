@@ -616,13 +616,15 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Two Baseline Implementations</h2>
 
+						FIXME
+
 						<div class="columns2">
 							<div class="column">
 								<h3 class="text-left"  style="font-size: 1.1em;">Fge-CNF vs. BDD-Based</h3>
 								<ul>
 									<li>Dependencies as input.</li>
 									<li>By Czarnecki and W&#261;sowski.</li>
-									<li>Scale to 300 features.</li>
+									<li>Scaled to 300 features.</li>
 								</ul>
 							</div>
 
@@ -635,6 +637,11 @@ options INET6        #IPv6 communications protocols</code></pre>
 								</ul>
 							</div>
 						</div>
+
+
+						FIXME: Experiment Setup
+
+
 					</section>
 
 					<section>
@@ -649,12 +656,102 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 					<section>
-						<h2>Contributions</h2>
+						<h2>Experiment Setup</h2>
+
+						FIXME
 
 						<ul>
-							<li>IST Journal</li>
-							<li>SPLC Paper</li>
+							<li>Repeated computation of each component of Fge (i.e., implication graph, mutex graph, and OR-group computation) 5 times for each algorithm. Recorded mean computation time.</li>
 						</ul>
+						<dl>
+							<dt>Null Hypothesis</dt>
+							<dd>
+								For each component of Fge  there is no difference in the mean computation times for Fge-CNF and Fge-BDD. 
+							</dd>
+						</dl>
+					</section>
+
+
+					<section>
+						<h2>Fge-CNF vs. Fge-BDD Results</h2>
+
+						<h4>SPLOT Dataset</h4>
+
+						<table class="smallskip" style="margin: auto;">
+							<thead>
+							<tr>
+								<td>Component</td>
+								<td>Mean Difference (ms)</td>
+								<td class="text-right">p-value</td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Implications</td>
+								<td class="text-right">-16</td>
+								<td class="text-right">0.63</td>
+							</tr>
+							<tr>
+								<td>Mutual Exclusions</td>
+								<td class="text-right">-20</td>
+								<td class="text-right">0.38</td>
+							</tr>
+							<tr>
+								<td>Or Groups</td>
+								<td class="text-right">-10,854</td>
+								<td class="text-right">1.13 x 10<sup>-9</sup></td>
+							</tr>
+							</tbody>
+						</table>
+
+							<p class="small text-center medskip">Fge-CNF is <strong class="alert">significantly faster</strong> than the BDD-based algorithm for computing OR-Groups on the SPLOT dataset.</p>
+
+							<h4>Generated Dataset</h4>
+							<p class="small text-center">The BDD-based algorithm <strong class="alert">timed out</strong> for computing OR-Groups on all models, while Fge-CNF succeeded 12 models.</p>
+						</dl>
+
+					</section>					
+
+					<section>
+						<h2>Fge-DNF vs. Fge-FCA Results</h2>
+
+						<h4>SPLOT Dataset</h4>
+
+						<table class="smallskip" style="margin: auto;">
+							<thead>
+							<tr>
+								<td>Component</td>
+								<td>Mean Difference (ms)</td>
+								<td>p-value</td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Implications</td>
+								<td class="text-right">320</td>
+								<td class="text-right">0.0059</td>
+							</tr>
+							<tr>
+								<td>Mutual Exclusions</td>
+								<td class="text-right">166</td>
+								<td class="text-right">0.0012</td>
+							</tr>
+							<tr>
+								<td>Or Groups</td>
+								<td class="text-right">-3,904</td>
+								<td class="text-right">0.1214</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<p class="small text-center">Performance of Fge-DNF is similar to that of the FCA-based algorithm.</p>
+					</section>
+
+					<section>
+						<h2>Fge-DNF vs. Fge-FCA (cont.)</h2>
+	
+						<img src="figs/long-dnf-2.svg" style="zoom: 1.8;">
+
 					</section>
 				</section>
 
