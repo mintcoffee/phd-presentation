@@ -44,7 +44,7 @@
   left: 50%;
   text-align: center;
   margin-left: -50px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: .6em !important; }
 .reveal .bg {
   background-color: #98c5ee;
@@ -55,6 +55,8 @@
   font-size: .8em;
   position: absolute;
   bottom: 0; }
+.reveal .large {
+  font-size: 1.3em; }
 
 .smallskip {
   margin-bottom: .5em !important; }
@@ -103,6 +105,7 @@ body {
 .reveal h6 {
   margin: 0 0 10px 0;
   color: #333333;
+  font-weight: bold;
   line-height: 1.2em;
   letter-spacing: -0.04em;
   text-transform: none;

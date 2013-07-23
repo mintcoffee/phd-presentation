@@ -101,7 +101,7 @@ $accentColor: #474497;
 	  left: 50%;
 	  text-align: center;
 	  margin-left: -50px;
-	  font-family: "Oswald", sans-serif;
+	  font-family: "Source Sans Pro", sans-serif;
 	  font-size: .6em !important;
 	}
 
@@ -115,6 +115,10 @@ $accentColor: #474497;
 	  font-size: .8em;
 	  position: absolute;
 	  bottom: 0;
+	}
+
+	.large {
+		font-size: 1.3em;
 	}
 }
 

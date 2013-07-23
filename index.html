@@ -103,7 +103,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 				<section>
 					<section>
 						<h2>Feature Models</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.2;">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.4;">
 						<p class="text-center">
 						Feature models describe the common and variable characteristics of products in a product line.
 						</p>
@@ -118,6 +118,30 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.7;">
 
 						$$\mathsf{powersave} \land \mathsf{acpi} \rightarrow \mathsf{cpu\_hotplug}$$
+					</section>
+
+
+					<section>
+						<h2>Configuration Semantics</h2>
+						<p class="lead">Feature models describe a set of legal configurations.</p>
+						<ul class="medskip">
+							<li>FMs translate to a propositional formula, \(\varphi\).</li>
+							<li>Satisfying assignments are the legal configurations.</li>
+						</ul>
+
+						<div style="display: inline-block; vertical-align: middle; margin-right: 50px;">
+						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"> 
+						</div>
+						<div style="display: inline-block; vertical-align: middle;">
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
+							{ OS, staging, net, dst}
+						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						</div>
+
 					</section>
 				</section>
 
@@ -171,30 +195,62 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Feature Model Operations</h2>
 						<div class="text-center">
-							<img class="no-border" src="figs/fm-ops-1.tex.svg" style="zoom: 1.6;" alt=""><br>
-							<img class="no-border" src="figs/fm-ops-2.tex.svg" style="zoom: 1.6;" alt="">							
+							<img class="no-border" src="figs/fm-ops-1.tex.svg" style="zoom: 1.5;" alt=""><br>
+							<img class="no-border" src="figs/fm-ops-2.tex.svg" style="zoom: 1.5;" alt="">							
 						</div>
 						<ul class="bigskip">
 							<li>Input consists of feature models.</li>
 							<li>Feature models translated to a prop. formula by configuration semantics.</li>
+							<li>Operation applied to formula then used as input to synthesis.</li>
 						</ul>
 					</section>
+
 
 
 					<section>
-						<h2>Publications</h2>
+						<h2>Requirements for FM Synthesis</h2>
 
-						<ul>
-							<li>VARY 2012 paper.</li>
-							<li>Classified scenarios from roughly 20 papers into 4 categories based on their input artifacts.</li>
-							<li>Derived 6 workflows showing commonality and difference between synthesis scenarios.</li>
-							<li>Derived requirements for feature model synthesis algorithms.</li>
-						</ul>
+
+						<dl>
+							<dt>Synthesis Input</dt>
+							<dd>As (1) Configurations, or (2) Dependencies.</dd>
+							<dt>Hierarchy</dt>
+							<dd>User input or automated heuristics needed to select a distinct feature hierarchy.</dd>
+							<dt>Soundness and Completeness</dt>
+							<dd>Derive an exact FM with a maximal Feature Diagram.</dd>
+							<dt>Scalability</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+						</dl>
+
 					</section>
+
 
 				</section>
 
 
+				<section>
+					<section>
+						<h2>Thesis Statement</h2>
+
+						<p> We <em>efficiently synthesize</em> <em>feature models</em> with <em>thousands of features</em> by <em>identifying relevant features for building the feature hierarchy</em> and combining <em>reasoning on propositional formulas</em> with <em>textual similarity heuristics</em>.
+						</p>
+					</section>
+
+					<section>
+						<h2>Contributions</h2>
+						<ol style="margin-top: 50px;">
+							<li><em>Motivation</em></li>
+							<li><em>Feature Model Synthesis Scenarios</em></li>
+							<li><strong>Feature Graph Extraction</strong>
+								<ul>
+									<li>Challenges of FM Synthesis</li>
+								</ul>
+							</li>
+							<li>Feature Tree Synthesis</li>
+							<li>Analysis of the Linux Kconfig Language</li>
+						</ol>
+					</section>
+				</section>
 
 
 
@@ -204,8 +260,8 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<h2>Challenges of FM Synthesis</h2>
 
 						<dl>
-							<dt>Maximality and Completeness</dt>
-							<dd>Synthesize a feature diagram that is <strong>maximally complete</strong> w.r.t. input configurations.</dd>
+							<dt>Sound and Complete Synthesis</dt>
+							<dd>Synthesize a feature diagram that is <strong>maximally complete</strong> w.r.t. input configurations. FIXME</dd>
 							<dt>Scalability</dt>
 							<dd>Support thousands of features (e.g., Linux, eCos, FreeBSD)</dd>
 							<dt>Support Derivation of a Feature Hierarchy</dt>
@@ -214,7 +270,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 					<section>
-						<h2>Completeness</h2>
+						<h2>Soundness and Completeness</h2>
 						<div style="margin-top: -30px;">
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
 						<p style="display: inline-block;">
@@ -226,10 +282,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</div>
 						<div class="clearfix"></div>
 
-						<div style="float: left; width: 40%; margin-right: .5%; height: 330px; text-align: center;">
-						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption">(a) More configs (complete)</div>
-						</div>
 						<div style="float: left; width: 27%; height: 330px; text-align: center;">
 						<img src="figs/fd-less.tex.svg" class="no-border"  style="zoom: 2;">
 						<div class="caption">(b) Less configs (sound)</div>
@@ -238,12 +290,64 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<img src="figs/fd-arbitrary.tex.svg" class="no-border"  style="zoom: 2;">
 						<div class="caption" style="width: 32%;">(c) Arbitrary</div>
 						</div>		
+						<div style="float: left; width: 40%; margin-right: .5%; height: 330px; text-align: center;">
+						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+						<div class="caption">(a) More configs (complete)</div>
+						</div>
 					</section>
 
 
+					<section>
+						<h2>Sound and Complete Synthesis</h2>
+						<div style="margin-top: -30px;">
+							<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
+							<p style="display: inline-block;">
+								{ OS, staging },<br>
+								{ OS, staging, net},<br>
+								{ OS, staging, net, dst}
+							</p>
+							<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						</div>
+
+
+						<div style="display: inline-block; width: 40%; margin-right: .5%; height: 300px; text-align: center; vertical-align: top;">
+						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+						<div class="caption" style="width: 40%;">Complete FD</div>
+						</div>
+
+						<div style="display: inline-block; width: 40%; margin-right: .5%; height: 300px; text-align: center; vertical-align: top;">
+						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+						\[ 
+							\mathsf{dst} \rightarrow \mathsf{net} \\
+						\]
+						<div class="caption" style="width: 40%;">Sound and Complete FD</div>
+						</div>						
+					</section>
+
+
+<!-- 					<section>
+
+						<div class="medskip">
+						Feature Models consists of a <em>Feature Diagram</em><br>and a <em>Cross-Tree Formula</em>.
+						</div>
+
+						<div class="medskip">
+						Feature Diagrams can't represent some inputs, e.g.
+						</div>
+
+						<div class="medskip large">
+						\[\begin{aligned}
+							\mathsf{bluetooth} \land \mathsf{wifi} &amp;\rightarrow \mathsf{wireless}
+						\end{aligned}\]
+						</div>
+						
+						<p>We synthesize a <strong>maximal, complete feature diagram</strong>. Any constraints not in the diagram form the cross-tree formula.</p>						
+
+					</section>
+ -->
 
 					<section>
-						<h2>Maximality</h2>
+						<h2>Maximal Feature Diagram</h2>
 
 						<div style="margin-top: -30px;">
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
@@ -255,14 +359,14 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
 
-						<div style="display:inline-block; position: relative; margin-right: 10%; height: 330px; text-align: center; vertical-align: top;">
+						<div style="display:inline-block; height: 330px; text-align: center; width: 40%; vertical-align: top;">
 							<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-							<div class="caption">(a) Non-maximal</div>
+							<div class="caption" style="width: 40%;">Non-maximal FD</div>
 						</div>
 
-						<div style="display: inline-block; position: relative; height: 330px; text-align: center; vertical-align: top;">
+						<div style="display: inline-block; height: 330px; text-align: center; vertical-align: top; width: 40%;">
 							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"><br>
-							<div class="caption">(b) Maximal</div>	
+							<div class="caption" style="width: 40%;">Maximal FD</div>	
 						</div>
 					</section>
 
@@ -316,7 +420,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<dl>
 							<dt>DAG Hierarchy Recovery</dt>
 
-							<dd>Recovers the hierarchy in the form of an Implication Graph</dd>
+							<dd>Recovers the hierarchy as an Implication Graph</dd>
 
 						<dt>Group and CTC Recovery</dt>
 							<dd>Recovers feature groups and cross-tree constraints</dd>
@@ -327,13 +431,13 @@ options INET6        #IPv6 communications protocols</code></pre>
 					
 
 					<section>
-						<h2 class="bigskip">DAG Hierarchy Recovery</h2>
+						<h2 class="smallskip">DAG Hierarchy Recovery</h2>
 
 						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
-							<div style="font-size: 3em;">\[ \varphi \]</div>
+							<div style="font-size: 2.0em;">\[ DAG(\varphi) \]</div>
 						</div>
 						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
-							<div style="font-size: 3em;">\[ \rightarrow \]</div>
+							<div style="font-size: 2em;">\[ \mapsto \]</div>
 						</div>
 						<div style="display: inline-block; vertical-align: middle;">
 							<img src="figs/ig.tex.svg" alt="" style="zoom: 1.8;" class="no-border"><br>
@@ -343,13 +447,19 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<ul>
 							<li>Given a Propositional formula, builds an Implication Graph.</li>
-							<li>The Implication Graph describes all possible hierarchies.</li>
+							<li>Describes all possible hierarchies as a DAG.</li>
 						</ul>
 					</section>
 
 
 					<section>
 						<h2>Group and CTC Recovery</h2>
+
+
+						<ul>
+							<li>Identifies mutex-, xor-, and or-groups.</li>
+							<li></li>
+						</ul>
 
 						TODO
 					</section>
@@ -423,24 +533,18 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 				</section>
 
-				<section>
-					<section>
-						<h2>Thesis Statement</h2>
-
-						<p> We <em>efficiently synthesize</em> <em>feature models</em> with <em>thousands of features</em> by <em>identifying relevant features for building the feature hierarchy</em> and combining <em>reasoning on propositional formulas</em> with <em>textual similarity heuristics</em>.
-						</p>
-					</section>
 
 					<section>
-						<h2>Contributions</h2>
-						<ol>
-							<li>Feature Model Synthesis Scenarios</li>
-							<li>Kconfig Variability Language</li>
-							<li>Feature Graph Extraction</li>
-							<li>Feature Tree Synthesis</li>
-						</ol>
+						<h2>Publications</h2>
+
+						<ul>
+							<li>VARY 2012 paper.</li>
+							<li>Classified scenarios from roughly 20 papers into 4 categories based on their input artifacts.</li>
+							<li>Derived 6 workflows showing commonality and difference between synthesis scenarios.</li>
+							<li>Derived requirements for feature model synthesis algorithms.</li>
+						</ul>
 					</section>
-				</section>
+
 
 				<section>
 					<section>

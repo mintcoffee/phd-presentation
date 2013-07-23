@@ -45,6 +45,7 @@ body {
 .reveal h6 {
   margin: 0 0 10px 0;
   color: #eeeeee;
+  font-weight: bold;
   line-height: 1em;
   letter-spacing: 0.02em;
   text-transform: none;
