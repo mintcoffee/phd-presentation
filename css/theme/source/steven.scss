@@ -88,8 +88,9 @@ $accentColor: #474497;
 
 	}
 
-	p.slide-number {
+	.slide-number {
 	  position: absolute;
+	  z-index: 1000;
 	  width: 100px;
 	  bottom: 0;
 	  left: 50%;
@@ -117,15 +118,45 @@ $accentColor: #474497;
 	.alert {
 		color: $accentColor;
 	}
+	.title {
+		margin-top: 2em;
+	}
+
+	.columns2 {
+		margin: .5em 0;
+		.column {
+			display: inline-block;
+			width: 48%;
+			margin-right: 1%;
+			vertical-align: top;
+		}
+	}
+}
+
+// Apply using data-state="inverse"
+.inverse {
+	.reveal {
+		background-color: #1B325F;
+		color: white;
+		h1, h2, h3, h4, h5, h6 {
+			color: inherit;
+		}
+	}
 }
 
 
 .smallskip {
 	margin-bottom: .5em !important;
+	li {
+		margin-bottom: .5em !important;
+	}
 }
 
 .medskip {
 	margin-bottom: 1em !important;
+	li {
+		margin-bottom: 1em !important;
+	}
 }
 
 .bigskip {
@@ -134,6 +165,10 @@ $accentColor: #474497;
 
 .text-center {
 	text-align: center !important;
+}
+
+.text-left {
+	text-align: left !important;
 }
 
 

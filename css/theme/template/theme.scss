@@ -34,6 +34,7 @@ body {
 .reveal h6 {
 	margin: 0 0 10px 0;
 	color: $headingColor;
+	font-family: $headingFont;
 	font-weight: bold;
 
 	line-height: $headingLineHeight;
@@ -42,15 +43,18 @@ body {
 }
 
 .reveal h1 {
-	font-family: $headingFont;
 	text-shadow: $heading1TextShadow;
 	font-size: 2.5em;
 }
 
 .reveal h2 {
-	font-family: $headingFont;
 	font-size: 1.7em;
 	margin-bottom: .5em;
+}
+
+.reveal h3 {
+	font-weight: normal;
+	font-size: 1.3em;
 }
 
 

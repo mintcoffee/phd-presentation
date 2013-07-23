@@ -43,8 +43,8 @@
 			<p class="slide-number"></p>
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section style="margin-top: 150px;">
-					<h1>Feature Model Synthesis</h1>
+				<section data-background="#1B325F" data-state="inverse">
+					<h1 class="title">Feature Model Synthesis</h1>
 					<h3>Steven She</h3>
 					<p class="text-center">
 						Generative Software Development Lab
@@ -93,8 +93,11 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 					<section>
-						<h2>Configuring Linux</h2>
-						<img src="figs/xconfig.png" width="600">
+						<h2>Variability Models</h2>
+						<img src="figs/xconfig.png" width="550" class="medskip">
+
+						<p class="text-center">Explicit model of a system's variability.</p>
+						<p class="text-center">Benefits include <strong class="alert">Graphical Configurators</strong> and <br><strong class="alert">Automated Analysis</strong>.</p>
 					</section>
 				</section>
 
@@ -121,14 +124,15 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 					<section>
 						<h2>Configuration Semantics</h2>
-						<p class="lead">Feature models describe a set of<br> <strong>legal configurations</strong>.</p>
-						<ul class="smallskip">
-							<li>FMs translate to a propositional formula, \(\varphi\).</li>
-							<li>Satisfying assignments are the legal configurations.</li>
-						</ul>
+						<p class="lead">Feature models describe a set of<br> <strong class="alert">legal configurations</strong>.</p>
 
-						<div style="display: inline-block; vertical-align: middle; margin-right: 50px;">
-						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"> 
+						<p style="display: inline-block; vertical-align: middle; font-size: 6em; font-weight: 200; letter-spacing: -.2em; margin-right: .1em; margin-top: -.1em;">[[</p>
+						<div style="display: inline-block; vertical-align: middle;">
+							<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2;"> 
+						</div>
+						<p style="display: inline-block; vertical-align: middle; font-size: 6em; font-weight: 200; letter-spacing: -.2em; margin-right: .2em; margin-top: -.1em;">]]</p>
+						<div style="display: inline-block; vertical-align: middle; font-size: 2em;">
+							\[ \mapsto \]
 						</div>
 						<div style="display: inline-block; vertical-align: middle;">
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
@@ -139,6 +143,11 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</p>
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
+
+						<ul style="margin-top: .75em;">
+							<li>Represented as a propositional formula, \(\varphi\).</li>
+							<li>Satisfying assignments are the legal configurations.</li>
+						</ul>
 
 					</section>
 				</section>
@@ -151,15 +160,14 @@ options INET6        #IPv6 communications protocols</code></pre>
 							Feature model synthesis is the construction
 							and design of a feature model given a set of features and legal combinations of features.
 						</p>
-
 						<img class="no-border" src="figs/flow.tex.svg" style="zoom: 1.8;">
 
 					</section>
 
 					<section>
-						<h2>Applicable Scenarios</h2>
-						<ol>
-							<li>Synthesis from Product Configurations</li>
+						<h2 class="bigskip">Applicable Synthesis Scenarios</h2>
+						<ol class="large smallskip">
+							<li>Synthesis From Product Configurations</li>
 							<li>Tool-Assisted Reverse Engineering from Code</li>
 							<li>Feature Model Merge Operations</li>
 						</ol>
@@ -205,7 +213,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 
-					<section>
+					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt>Input</dt>
@@ -223,34 +231,32 @@ options INET6        #IPv6 communications protocols</code></pre>
 				</section>
 
 
-				<section>
-					<section>
-						<h2 class="bigskip">Thesis Statement</h2>
+				<section data-background="#DFEEDB">
+					<h2 class="bigskip">Thesis Statement</h2>
 
-						<p class="lead">We efficiently synthesize <strong>large scale feature models</strong><br> with algorithms that use<br><em>SAT-based reasoning on propositional formulas</em> and<br>
-						that suggest a <strong>feature hierarchy</strong> with<br> <em>textual similarity heuristics</em>.
-						</p>
-					</section>
-
-					<section>
-						<h2 class="bigskip">Contributions</h2>
-						<ol class="large">
-							<li>Feature Graph Extraction</li>
-							<li>Feature Tree Synthesis</li>
-							<li>Analysis of the Linux Kconfig Language</li>
-						</ol>
-					</section>
+					<p class="lead">We efficiently synthesize <strong>large scale feature models</strong><br> with algorithms that use<br><em>SAT-based reasoning on propositional formulas</em> and<br>
+					that suggest a <strong>feature hierarchy</strong> with<br> <em>textual similarity heuristics</em>.
+					</p>
 				</section>
 
 
+				<section>
+					<h2 class="bigskip">Contributions</h2>
+					<ol class="large medskip">
+						<li><strong class="alert">Feature Graph Extraction</strong></li>
+						<li><strong class="alert">Feature Tree Synthesis</strong></li>
+						<li>Analysis of the Linux Kconfig Language</li>
+						<li>Extraction of the Linux variability model</li>
+					</ol>
+				</section>
 
 
 				<section>
-					<section>
-						<h1>Feature Graph Extraction</h1>
+					<section data-background="#1B325F" data-state="inverse">
+						<h1 class="title">Feature Graph Extraction</h1>
 					</section>
 
-					<section>
+					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt>Input</dt>
@@ -279,15 +285,15 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<div style="float: left; width: 27%; height: 330px; text-align: center;">
 						<img src="figs/fd-less.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption">(b) Less configs (sound)</div>
+						<div class="caption">Less configs (sound)</div>
 						</div>
 						<div style="float: left; width: 32%; height: 330px; text-align: center;">
 						<img src="figs/fd-arbitrary.tex.svg" class="no-border"  style="zoom: 2;">
-						<div class="caption" style="width: 32%;">(c) Arbitrary</div>
+						<div class="caption" style="width: 32%;">Arbitrary</div>
 						</div>		
 						<div style="float: left; width: 40%; margin-right: .5%; height: 330px; text-align: center;">
 						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption">(a) More configs (complete)</div>
+						<div class="caption">More configs (complete)</div>
 						</div>
 					</section>
 
@@ -422,7 +428,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 
-					<section>
+					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt><strong class="alert">Input</strong></dt>
@@ -491,7 +497,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<p class="lead"><strong class="alert">Dependencies</strong> represented as a CNF Formula.</p>
 					</section>
 
-					<section>
+					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt><strong class="alert">Input</strong></dt>
@@ -506,12 +512,16 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 					<section>
-						<h2>Feature Graph Extraction</h2>
+						<h2>Feature Graph Extraction (Fge)</h2>
 
-						<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
+						<div class="smallskip">
+							<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
+						</div>
 
 						<ul>
 							<li>Synthesizes a feature graph given a formula in CNF or DNF.</li>
+							<li>Fge-CNF and Fge-DNF.</li>
+							<li>Feature graph is maximal and complete.</li>
 							<li>Algorithm uses a SAT solver.</li>
 						</ul>
 					</section>
@@ -536,7 +546,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<h2 class="smallskip">DAG Hierarchy Recovery</h2>
 
 						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
-							<div style="font-size: 2.0em;">\[ DAG(\varphi) \]</div>
+							<div style="font-size: 2.0em;">\[ \mathrm{DAG}(\varphi) \]</div>
 						</div>
 						<div style="display: inline-block; vertical-align: middle; margin-right: 1em;">
 							<div style="font-size: 2em;">\[ \mapsto \]</div>
@@ -548,7 +558,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 						<ul>
-							<li>Given a Propositional formula, builds an Implication Graph.</li>
+							<li>Given a propositional formula, builds an <strong class="alert">Implication Graph</strong>.</li>
 							<li>Describes all possible hierarchies as a DAG.</li>
 						</ul>
 					</section>
@@ -566,7 +576,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						TODO
 					</section>
 
-					<section>
+					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt>Input</dt>
@@ -580,8 +590,62 @@ options INET6        #IPv6 communications protocols</code></pre>
 						</dl>
 					</section>
 
+
 					<section>
 						<h2>Experimental Evaluation</h2>
+
+
+						<dl>
+							<dt>Purpose</dt>
+							<dd>Evaluate <strong class="alert">performance</strong> of our algorithms by comparing to related algorithms with same inputs and outputs a feature graph.</dd>
+							<dt>Dataset</dt>
+							<dd><strong class="alert">Input representative of synthesis scenarios</strong>. Derive input from 267 FMs in a FM repository, 20 generated FMs, and the Linux variability model.
+							</dd>
+							<dt>Measure</dt>
+							<dd><strong class="alert">Time</strong> needed to compute each part of a feature graph.</dd>
+						</dl>
+
+<!-- 						<ul class="smallskip">
+							<li>Feature Model Synthesis is a <strong class="alert">NP-Hard problem</strong>.</li>
+							<li>Evaluate our algorithms against <strong class="alert">input representative of real world synthesis scenarios</strong>.</li>
+							<li>Compared Fge-CNF and Fge-DNF against two baseline algorithms with same inputs and outputs.</li>
+							<li>Measured <strong class="alert">computation time</strong> across the different steps of Feature Graph Extraction.</li>
+						</ul>
+ -->					</section>
+
+					<section>
+						<h2>Two Baseline Implementations</h2>
+
+						<div class="columns2">
+							<div class="column">
+								<h3 class="text-left"  style="font-size: 1.1em;">Fge-CNF vs. BDD-Based</h3>
+								<ul>
+									<li>Dependencies as input.</li>
+									<li>By Czarnecki and W&#261;sowski.</li>
+									<li>Scale to 300 features.</li>
+								</ul>
+							</div>
+
+							<div class="column">
+								<h3 class="text-left" style="font-size: 1.1em;">Fge-DNF vs. FCA-Based</h3>
+								<ul>
+									<li>Configurations as input.</li>
+									<li>By Ryssel et al.</li>
+									<li>Based on <strong class="alert">Formal Concept Analysis</strong>.</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h2 class="medskip">Dataset Characteristics</h2>
+
+						<ul class="smallskip">
+							<li>267 feature models from the SPLOT model repository and the Linux variability model with 5426 features.</li>
+							<li>20 randomly generated FMs with 3CNF constraints.</li>
+						</ul>
+
+						<img src="figs/splot-size.svg" alt="" style="zoom: 1.7;">
 					</section>
 
 					<section>
@@ -596,7 +660,10 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 				<section>
-					<section>
+					<section data-background="#1B325F" data-state="inverse">
+						<h1 class="title">Feature Tree Synthesis</h1>
+					</section>
+					<section  data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt>Input</dt>
@@ -745,14 +812,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 				</section>
 
-				<section>
-					<h2>Feature Graph Extraction</h2>
-				</section>
-
-				<section>
-					<h2>Feature Tree Synthesis</h2>
-				</section>
-
 
 				<section>
 					<h2>Heads Up</h2>
@@ -765,82 +824,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 					</aside>
 				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
