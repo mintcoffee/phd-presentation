@@ -792,19 +792,25 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 					<section>
 						<h2>Selecting a Hierarchy</h2>
-
-						<div style="float: left; width: 32%; margin-right: 2%; height: 300px; padding-top: 53px; text-align: center;">
-						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;">
+						<div class="columns2" style="position: relative;">
+							<div style="padding-top: .5em; display: inline-block; vertical-align: middle;width: 40%;">
+							<p style="display: inline-block; font-size: 4em; font-weight: 200;">{</p>
+							<p style="display: inline-block; font-size: .8em;">
+								{ OS, staging },<br>
+								{ OS, staging, net},<br>
+								{ OS, staging, net, dst}
+							</p>
+							<p style="display: inline-block; font-size: 4em; font-weight: 200;">}</p>
+							<div class="caption" style="width: 40%;">Input</div>
+							</div>
+							<div class="column" style="width: 25%;"><img src="figs/fd-1.tex.svg" alt="" class="no-border" style="zoom: 1.8;">
+							<div class="caption" style="width: 25%;">FD<sub>1</sub></div>
+							</div>
+							<div class="column" style="width: 25%;"><img src="figs/fd-2.tex.svg" alt="" class="no-border" style="zoom: 1.8;">
+							<div class="caption"  style="width: 25%;">FD<sub>2</sub></div>
+							</div>
 						</div>
-						<div style="float: left; width: 34%; margin-right: .5%; height: 300px; text-align: center;">
-						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> or
-						</div>
-						<div style="float: left; width: 31%; height: 300px; text-align: center;">
-						<img src="figs/fd-2.tex.svg" class="no-border" style="zoom: 2.5;">
-						</div>
-
-						<div style="clear: both;" class="medskip"></div>
-
+						<div class="bigskip"></div>
 						<p class="text-center">How do we derive a single hierarchy out of all possible hierarchies?</p>
 					</section>
 
@@ -1010,9 +1016,34 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 
 					<section>
-						<h2>Feature Tree Synthesis Summary</h2>
+						<h2>Tree Synthesis Summary</h2>
 
-						TODO
+						<div class="columns2">
+							<div style="padding-top: .5em; display: inline-block; vertical-align: middle;width: 40%;">
+							<p style="display: inline-block; font-size: 4em; font-weight: 200;">{</p>
+							<p style="display: inline-block; font-size: .8em;">
+								{ OS, staging },<br>
+								{ OS, staging, net},<br>
+								{ OS, staging, net, dst}
+							</p>
+							<p style="display: inline-block; font-size: 4em; font-weight: 200;">}</p>
+							</div>
+							<div class="column" style="width: 25%;"><img src="figs/fd-1.tex.svg" alt="" class="no-border" style="zoom: 1.6;">
+							</div>
+							<div class="column" style="width: 25%;"><img src="figs/fd-2.tex.svg" alt="" class="no-border" style="zoom: 1.6;">
+							</div>
+						</div>
+
+						<div class="columns2">
+							<div class="column" style="width: 40%;">
+							<img src="figs/mockup.svg" alt="" class="no-border" style="zoom: 1.2;">
+							</div>
+							<div class="column small" style="width: 57%; padding-top: 2em;">
+							<ul>
+								<li>Two lists that combines logical dependencies with a textual similarity measure.</li>
+							</ul>
+							</div>
+						</div>
 					</section>			
 
 				</section>
