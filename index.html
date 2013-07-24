@@ -222,6 +222,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 				</section>
 
 
+				<section>
 				<section data-background="#DFEEDB">
 					<h2 class="bigskip">Thesis Statement</h2>
 
@@ -229,7 +230,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 					that suggest a <strong>feature hierarchy</strong> with<br> <em>textual similarity heuristics</em>.
 					</p>
 				</section>
-
 
 				<section>
 					<h2>Contributions</h2>
@@ -267,6 +267,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							</ul>
 						</li>
 					</ol>
+				</section>
 				</section>
 
 
@@ -1005,9 +1006,14 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<img src="figs/incomplete-all.svg" alt="" style="zoom: 1.5;">
 
 						<p class="text-center">Randomly removed 25%, 50%, and 75% of words from all descriptions.</p>
-
 					</section>
-			
+
+
+					<section>
+						<h2>Feature Tree Synthesis Summary</h2>
+
+						TODO
+					</section>			
 
 				</section>
 <!-- 
@@ -1050,6 +1056,8 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<section data-state="kconfig">
 						<h2>Size of Analyzed Kconfig Models</h2>
 
+						TODO
+
 						<div class="text-center">
 							<img src="../tse/out/tse-size-kconfig.svg">
 						</div>
@@ -1058,10 +1066,55 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 
 				<section>
-				<section data-background="#1B325F" data-state="inverse">
-					<h1 class="title">Conclusions</h1>
+					<section data-background="#1B325F" data-state="inverse">
+						<h1 class="title">Conclusions</h1>
+					</section>
+
+					<section data-background="#C3D6EB">
+						<h2>Requirements for FM Synthesis</h2>
+						<dl>
+							<dt>Input</dt>
+							<dd>Support input as either Configurations or Dependencies.</dd>
+							<dt>Sound and Complete</dt>
+							<dd>Derive an exact feature model describing the input.</dd>
+							<dt>Scalable</dt>
+							<dd>Support 10 to 1000's of features (e.g., Linux, FreeBSD).</dd>
+							<dt>Hierarchy Selection</dt>
+							<dd>Use User input or heuristics to select a distinct feature hierarchy.</dd>
+						</dl>
+					</section>
+
+					<section data-background="#DFEEDB">
+						<h2 class="bigskip">Thesis Statement</h2>
+
+						<p class="lead">We efficiently synthesize <strong>large scale feature models</strong><br> with algorithms that use<br><em>SAT-based reasoning on propositional formulas</em> and<br>
+						that suggest a <strong>feature hierarchy</strong> with<br> <em>textual similarity heuristics</em>.
+						</p>
+					</section>
+
+					<section>
+						<h2>Contributions</h2>
+						<ol class="publications">
+							<li>Feature Model Synthesis Scenarios</li>
+							<li>Feature Graph Extraction
+							<ul>
+								<li>Builds a <strong class="alert">feature graph</strong> on DNF and CNF input with a SAT solver.</li>
+								<li>Feature graph is maximal and complete, with cross-tree constraints describes <strong class="alert">exactly</strong> the input.</li>
+							</ul>
+							</li>
+							<li>Feature Tree Synthesis
+								<ul>
+									<li>Semi-automated technique for building the feature hierarchy using <strong class="alert">logical constraints</strong> and a <strong class="alert">textual similarity measure</strong>.</li>
+								</ul>
+							</li>
+							<li>Kconfig and the Linux Variability Model
+								<ul>
+									<li>Largest variability models available to researchers.</li>
+								</ul>
+							</li>
+						</ol>
+					</section>			
 				</section>
-			</section>
 
 
 
