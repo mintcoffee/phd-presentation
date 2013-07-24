@@ -74,6 +74,15 @@
     width: 48%;
     margin-right: 1%;
     vertical-align: top; }
+.reveal .publications > li {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.2em;
+  margin-bottom: .5em; }
+  .reveal .publications > li ul, .reveal .publications > li ol {
+    margin-top: .25em; }
+    .reveal .publications > li ul li, .reveal .publications > li ol li {
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: .8em; }
 .reveal table {
   border-top: 5px solid black;
   border-bottom: 5px solid black;

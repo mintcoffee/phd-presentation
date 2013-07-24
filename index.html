@@ -30,14 +30,6 @@
 		<![endif]-->
 	</head>
 
-	<!-- 	Presentation can follow this format.
-	• i. Intro: broad/bold question(s) unanswered when you started your Ph.D. (5 minutes)
-	• ii. How you tackled those problems: precise question (1‐2 minutes per chapter)
-	• iii. What are your findings for ii. (1‐2 minutes per chapter)
-	• iv. General conclusion: how your Ph.D. dissertation as a whole inform i. (5 minutes). For ii and iii I 
-	did question 1‐answer 1, question 2‐answer2, but questions 1‐5‐answer 1‐5 is also good.
-	 -->
-
 	<body>
 		<div class="reveal">
 			<p class="slide-number"></p>
@@ -240,12 +232,40 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 				<section>
-					<h2 class="bigskip">Contributions</h2>
-					<ol class="large medskip">
-						<li><strong class="alert">Feature Graph Extraction</strong></li>
-						<li><strong class="alert">Feature Tree Synthesis</strong></li>
-						<li>Analysis of the Linux Kconfig Language</li>
-						<li>Extraction of the Linux variability model</li>
+					<h2>Contributions</h2>
+					<ol class="publications">
+						<li><strong class="alert">Feature Graph Extraction</strong>
+							<ul>
+								<li>She, Ryssel, Andersen, Wasowski, Czarnecki, &ldquo;Efficient
+synthesis of feature models,&rdquo; submitted for review in Journal of  Information and Software Technology, 2013.</li>
+							<li>She, Czarnecki, and Wasowski, &ldquo;Usage scenarios for feature model synthesis,&rdquo; in VARY Workshop, 2012.</li>
+<li>
+	Andersen, Czarnecki, She, Wasowski, &ldquo;Efficient synthesis of feature models,&rdquo; in SPLC, 2012.
+</li>
+							</ul>
+							
+						</li>
+
+					</ol>
+				</section>
+
+				<section>
+					<h2>Contributions (cont.)</h2>
+					<ol class="publications" start="2">
+						<li><strong class="alert">Feature Tree Synthesis</strong>
+							<ul>
+								<li>She, Lotufo, Berger, W&#261;sowski, Czarnecki, &ldquo;Reverse engineering feature models,&rdquo; in ICSE, 2011.</li>
+							</ul>
+						</li>
+						<li>Kconfig &amp; the Linux Variability Model
+							<ul>
+								<li>She, Lotufo, Berger, W&#261;sowski, Czarnecki. &ldquo;The variability model of the linux kernel,&rdquo; in VaMoS, 2010.</li>
+
+								<li>Berger, She, Lotufo, Wasowski, Czarnecki, &ldquo;Variability modeling in the real: a perspective from the operating systems domain,&rdquo;in ASE, 2010.
+
+								</li>
+							</ul>
+						</li>
 					</ol>
 				</section>
 
@@ -569,9 +589,9 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<dl>
 							<dt>Mutex Groups \([0..1]\)</dt>
-							<dd>Maximal cliques in the Mutex Graph.</dd>
+							<dd>Maximal cliques in the <strong class="alert">Mutex Graph</strong>.</dd>
 							<dt>Or Groups \([1..n]\)</dt>
-							<dd>Given a parent \(p\), prime implicates of \(\varphi \land p\).</dd>
+							<dd>Given a parent \(p\), <strong class="alert">prime implicates</strong> of \(\varphi \land p\).</dd>
 							<dt>Xor Groups \([1..1]\)</dt>
 							<dd>Groups that are both Mutex and Or groups.</dd>
 						</dl>
@@ -902,7 +922,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<dl>
 							<dt>Purpose</dt>
-							<dd>Validate that the lists reduces the number of choices to consider for a user when building the feature hierarchy.</dd>
+							<dd>Validate that the lists reduces the choices for a user to consider when building the feature hierarchy under complete and incomplete data.</dd>
 							<dt>Complete Data</dt>
 							<dd>Linux, and eCos variability models.</dd>
 							<dt>Incomplete Data</dt>
@@ -990,19 +1010,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 			
 
 				</section>
-
-					<section>
-						<h2>Publications</h2>
-
-						<ul>
-							<li>VARY 2012 paper.</li>
-							<li>Classified scenarios from roughly 20 papers into 4 categories based on their input artifacts.</li>
-							<li>Derived 6 workflows showing commonality and difference between synthesis scenarios.</li>
-							<li>Derived requirements for feature model synthesis algorithms.</li>
-						</ul>
-					</section>
-
-
+<!-- 
 				<section>
 					<section>
 						<h2>Feature Model Synthesis Scenarios</h2>
@@ -1034,16 +1042,13 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 
 				</section>
-
-
-				
-
+ -->
 				<section>
-					<section>
-						<h2>Real World Variability Models</h2>
+					<section data-background="#1B325F" data-state="inverse">
+						<h1 class="title">Kconfig Language and Models</h1>
 					</section>
 					<section data-state="kconfig">
-						<h2>Size of Kconfig Models</h2>
+						<h2>Size of Analyzed Kconfig Models</h2>
 
 						<div class="text-center">
 							<img src="../tse/out/tse-size-kconfig.svg">
@@ -1051,22 +1056,14 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 				</section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
+				<section>
+				<section data-background="#1B325F" data-state="inverse">
+					<h1 class="title">Conclusions</h1>
 				</section>
+			</section>
+
+
 
 			</div>
 

@@ -135,6 +135,21 @@ $accentColor: #474497;
 		}
 	}
 
+	.publications {
+		> li {
+			font-family: $headingFont;
+			font-size: 1.2em;
+			margin-bottom: .5em;
+			ul, ol {
+				margin-top: .25em;
+				li {
+					font-family: $mainFont;
+					font-size: .8em;
+				}
+			}
+		}
+	}
+
 	table {
 		border-top: 5px solid black;
 		border-bottom: 5px solid black;
