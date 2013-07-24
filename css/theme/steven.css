@@ -40,7 +40,7 @@
   margin: 40px 10px;
   font-size: 1.15em;
   line-height: 1.5; }
-.reveal .slide-number {
+.reveal p.slide-number {
   position: absolute;
   z-index: 1000;
   width: 100px;
@@ -49,7 +49,7 @@
   text-align: center;
   margin-left: -50px;
   font-family: "Source Sans Pro", sans-serif;
-  font-size: .6em !important; }
+  font-size: 16px; }
 .reveal .bg {
   background-color: #98c5ee;
   padding: 10px; }
@@ -80,9 +80,27 @@
   border-collapse: collapse; }
   .reveal table td {
     font-size: .8em;
-    border: 0; }
+    border: 0;
+    padding: 0 .3em; }
   .reveal table thead td {
     border-bottom: 3px solid black; }
+.reveal dl.inline {
+  display: inline-block; }
+  .reveal dl.inline dt {
+    margin: 0; }
+  .reveal dl.inline dt {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+    text-align: right;
+    margin-right: 20px; }
+  .reveal dl.inline dd {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    margin-bottom: .3em; }
+.reveal .lighten {
+  color: gray; }
 
 .inverse .reveal {
   background-color: #1B325F;

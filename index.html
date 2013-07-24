@@ -94,7 +94,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 					<section>
 						<h2>Variability Models</h2>
-						<img src="figs/xconfig.png" width="550" class="medskip">
+						<img src="figs/xconfig.png" width="490" class="smallskip">
 
 						<p class="text-center">Explicit model of a system's variability.</p>
 						<p class="text-center">Benefits include <strong class="alert">Graphical Configurators</strong> and <br><strong class="alert">Automated Analysis</strong>.</p>
@@ -104,7 +104,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 				<section>
 					<section>
 						<h2>Feature Models</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.6;">
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.5;">
 						<p class="text-center">
 						Feature models describe the common and variable characteristics of products in a product line.
 						</p>
@@ -116,15 +116,14 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 					<section>
 						<h2>Feature Model Syntax</h2>
-						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.6;">
-
+						<img class="no-border" src="figs/pmfm.tex.svg" style="zoom: 1.5;">
 						$$\mathsf{powersave} \land \mathsf{acpi} \rightarrow \mathsf{cpu\_hotplug}$$
 					</section>
 
 
 					<section>
 						<h2>Configuration Semantics</h2>
-						<p class="lead">Feature models describe a set of<br> <strong class="alert">legal configurations</strong>.</p>
+						<p class="lead" style="margin-bottom: -.5em;">Feature models describe a set of<br> <strong class="alert">legal configurations</strong>.</p>
 
 						<p style="display: inline-block; vertical-align: middle; font-size: 6em; font-weight: 200; letter-spacing: -.2em; margin-right: .1em; margin-top: -.1em;">[[</p>
 						<div style="display: inline-block; vertical-align: middle;">
@@ -144,7 +143,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
 						</div>
 
-						<ul style="margin-top: .75em;">
+						<ul style="margin-top: .25em;">
 							<li>Represented as a propositional formula, \(\varphi\).</li>
 							<li>Satisfying assignments are the legal configurations.</li>
 						</ul>
@@ -599,7 +598,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 							<dt>Purpose</dt>
 							<dd>Evaluate <strong class="alert">performance</strong> of our algorithms by comparing to related algorithms with same inputs and outputs a feature graph.</dd>
 							<dt>Dataset</dt>
-							<dd><strong class="alert">Input representative of synthesis scenarios</strong>. Derive input from 267 FMs in a FM repository, 20 generated FMs, and the Linux variability model.
+							<dd><strong class="alert">Input representative of synthesis scenarios</strong>.<br>Derive input from FMs a FM repository, generated FMs, and the Linux variability model.
 							</dd>
 							<dt>Measure</dt>
 							<dd><strong class="alert">Time</strong> needed to compute each part of a feature graph.</dd>
@@ -616,30 +615,21 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Two Baseline Implementations</h2>
 
-						FIXME
+						<h3 style="font-size: 1.1em;">Fge-CNF vs. BDD-Based</h3>
+						<ul style="width: 600px;">
+							<li><strong class="alert">Dependencies</strong> as input.</li>
+							<li>By Czarnecki and W&#261;sowski.</li>
+							<li>Scaled to at most 300 features in past evaluations.</li>
+						</ul>
 
-						<div class="columns2">
-							<div class="column">
-								<h3 class="text-left"  style="font-size: 1.1em;">Fge-CNF vs. BDD-Based</h3>
-								<ul>
-									<li>Dependencies as input.</li>
-									<li>By Czarnecki and W&#261;sowski.</li>
-									<li>Scaled to 300 features.</li>
-								</ul>
-							</div>
+						<div class="bigskip"></div>
 
-							<div class="column">
-								<h3 class="text-left" style="font-size: 1.1em;">Fge-DNF vs. FCA-Based</h3>
-								<ul>
-									<li>Configurations as input.</li>
-									<li>By Ryssel et al.</li>
-									<li>Based on <strong class="alert">Formal Concept Analysis</strong>.</li>
-								</ul>
-							</div>
-						</div>
-
-
-						FIXME: Experiment Setup
+						<h3 style="font-size: 1.1em;">Fge-DNF vs. FCA-Based</h3>
+						<ul  style="width: 600px;">
+							<li><strong class="alert">Configurations</strong> as input.</li>
+							<li>By Ryssel et al.</li>
+							<li>Based on <strong class="alert">Formal Concept Analysis</strong>.</li>
+						</ul>
 
 
 					</section>
@@ -652,21 +642,16 @@ options INET6        #IPv6 communications protocols</code></pre>
 							<li>20 randomly generated FMs with 3CNF constraints.</li>
 						</ul>
 
-						<img src="figs/splot-size.svg" alt="" style="zoom: 1.7;">
+						<img src="figs/splot-size.svg" alt="" style="zoom: 1.7; padding: .25em; background: white;">
 					</section>
 
 					<section>
 						<h2>Experiment Setup</h2>
 
-						FIXME
-
-						<ul>
-							<li>Repeated computation of each component of Fge (i.e., implication graph, mutex graph, and OR-group computation) 5 times for each algorithm. Recorded mean computation time.</li>
-						</ul>
 						<dl>
 							<dt>Null Hypothesis</dt>
 							<dd>
-								For each component of Fge  there is no difference in the mean computation times for Fge-CNF and Fge-BDD. 
+								For each component of Fge, (i.e., implication graph, mutex graph, OR-groups)  there is no difference in the mean computation times for Fge-CNF and Fge-BDD. 
 							</dd>
 						</dl>
 					</section>
@@ -750,13 +735,20 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<section>
 						<h2>Fge-DNF vs. Fge-FCA (cont.)</h2>
 	
-						<img src="figs/long-dnf-2.svg" style="zoom: 1.8;">
-
+						<img src="figs/long-dnf-2.svg" style="zoom: 1.8; padding: .5em; background: white;">
 					</section>
+
+
+					<section>
+						<h2>Feature Graph Extraction Summary</h2>
+
+						TODO Publications
+					</section>
+
 				</section>
 
 
-				<section>
+				<section id="fts">
 					<section data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Feature Tree Synthesis</h1>
 					</section>
@@ -779,7 +771,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<h2>Selecting a Hierarchy</h2>
 
 						<div style="float: left; width: 32%; margin-right: 2%; height: 300px; padding-top: 53px; text-align: center;">
-						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> to
+						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;">
 						</div>
 						<div style="float: left; width: 34%; margin-right: .5%; height: 300px; text-align: center;">
 						<img src="figs/fd-1.tex.svg" class="no-border" style="zoom: 2.5; vertical-align: middle; margin-right: 10px;"> or
@@ -801,37 +793,192 @@ options INET6        #IPv6 communications protocols</code></pre>
 							<li><span style="display: block; float: left; width: 300px;">eCos</span> 1245 features</li>
 							<li><span style="display: block; float: left; width: 300px;">Linux</span> over 6000 features</li>
 						</ul>
-
-						<img src="figs/ig.tex.svg" class="no-border" style="zoom: 2; vertical-align: middle; margin-right: 10px;"> 
-
-						<p class="text-center">Many possible tree hierarchies for a given input.</p>
 					</section>
 
 					<section>
-						<h2>Solution: Feature Tree Synthesis</h2>
+						<h2>Two Lists</h2>
 						
 						<div class="medskip">
-						<img src="figs/ig.tex.svg" class="no-border" style="zoom: 1.6; vertical-align: middle; margin-right: 10px;"> to
-						<img src="figs/mockup.svg" class="no-border" style="zoom: 1.1; vertical-align: middle; margin-left: 20px;">
+						<img src="figs/mockup.svg" class="no-border" style="zoom: 1.3; vertical-align: middle; margin-left: 20px;">
 					</div>
 
 						<ul>
-							<li>Semi-automated.</li>
-							<li>Presents lists ranked by textual similarity to a user.</li>
-							<li>Consider incomplete input by relying solely on textual similarity.</li>
+							<li>RIFs: implied features ranked by textual similarity.</li>
+							<li>RAFs: all features ranked by textual similarity.<br>Handles incomplete input.</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Ranked Implied Features</h2>
+
+						<div>
+						<img src="figs/ig-reduced.tex.svg" class="no-border" style="zoom: 2; vertical-align: middle;"> <br>
+						<div class="small">Transitively Reduced<br>Implication Graph</div>
+						</div>
+
+						<div class="medskip"></div>
+
+						<ul>
+							<li>Children features must logically imply parents in FMs.</li>
+							<li>Further prioritize <strong class="alert">directly implied features</strong>.</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>Publications</h2>
+						<h2 class="medskip">Ranked All Features</h2>
 
-						<ul>
-							<li>ICSE paper.</li>
+						<p class="text-center">
+						Selecting a parent for:
+						</p>
+						<dl class="inline">
+							<dt>bluetooth</dt>
+							<dd>a <strong class="alert">network driver</strong>.</dd>
+						</dl>
+						<div class="bigskip"></div>
+
+						<dl class="inline small" style="display: inline-block; width: 600px; vertical-align: top;">
+							<dt>os_kernel</dt>
+							<dd>Operating systems</dd>
+							<dt>scheduler</dt>
+							<dd>I/O scheduling</dd>
+							<dt><strong class="alert">networking</strong></dt>
+							<dd><strong class="alert">Network</strong> <strong class="alert">drivers</strong></dd>
+							<dt>ethernet</dt>
+							<dd><div>Type of local area<br> <strong class="alert">network</strong>ing</div></dd>
+						</dl>
+
+						<dl class"small" style="display: inline-block; width: 300px; vertical-align: top;">
+							<dt class="small">1. networking</dt>
+							<dt class="small">2. ethernet</dt>
+							<dt class="small">3. os_kernel</dt>
+							<dt class="small">4. scheduler</dt>
+						</dl>
+
+
+
+					</section>
+
+
+					<section>
+						<h2 class="medskip">Feature Similarity Measure</h2>
+
+						<p class="medskip">Given a selected feature \(s\) and another feature \(p\), define similarity measure \(\delta(p,s)\) that:</p>
+
+						<ol>
+							<li>Takes the common words in the descriptions of p and s,</li>
+							<li>counts the number of occurrences of each shared word in p's description,</li>
+							<li>weigh each shared word by its <em>Inverse Document Frequency</em> and sum up.</li>
+						</ol>
+
+						<div class="medskip"></div>
+
+						<p>IDF used to discount common words in the domain (e.g., choose, select, Linux).</p>
+					</section>
+
+
+					<section>
+						<h2 class="medskip">Feature Similarity Measure (cont.)</h2>
+
+
+						<p class="medskip">Given a selected feature \(s\) and another feature \(p\):</p>
+						<div>
+						\[
+\begin{gather}
+  \label{eq:sim}
+  \delta(p,s) = \sum_{w \in [\mathrm{desc}(p) \cap \mathrm{desc}(s)]} 
+  \mathrm{count}(w, \mathrm{desc}(p)) * \mathrm{idf}(w) \\
+  \text{where } \mathrm{idf}(w) = \mathrm{log}\frac{|\mathrm{features}|}{|\{ f \in \mathrm{features} \mid \mathrm{desc}(f)\ \mathrm{contains}\ w \}|}
+\end{gather}
+						\]
+						</div>
+					</section>
+
+
+					<section>
+						<h2>Evaluation</h2>
+
+						<dl>
+							<dt>Purpose</dt>
+							<dd>Validate that the lists reduces the number of choices to consider for a user when building the feature hierarchy.</dd>
+							<dt>Complete Data</dt>
+							<dd>Linux, and eCos variability models.</dd>
+							<dt>Incomplete Data</dt>
+							 <dd>Built tools to extract features and dependencies from FreeBSD codebase. Manually created part of the FreeBSD model.</dd>
+						</dl>
+					</section>
+
+					<section>
+						<h2>Linux and eCos Variability Models</h2>
+
+
+						<div class="columns2">
+							<div class="column">
+								<img src="figs/xconfig.png" alt="" height="270">
+							</div>
+							<div class="column">
+								<img src="figs/ecos.png" alt="" height="270">
+							</div>
+						</div>
+
+						<ul class="small">
+							<li>Derive input based on language semantics.</li>
+							<li>Use the variability models as the reference.<br>i.e., the correct parent for each feature.</li>
+
 						</ul>
 					</section>
 
-				</section>
+					<section>
+						<h2>Evaluating RIFs</h2>
 
+						<p class="lead medskip">How many features have their reference parents in the Top 5 entries of our RIFs?</p>
+
+						<div class="fragment">
+						<h4 class="smallskip">All Features</h4>
+
+						<div class="columns2 medskip">
+							<div class="column large"><span style="font-size:1.5em;">76%</span><br>of features in Linux.</div>
+							<div class="column large"><span style="font-size:1.5em;">79%</span><br>of features in eCos.</div>
+						</div>
+					</div>
+
+						<div class="fragment">
+						<h4 class="smallskip">Ignoring Features at Root</h4>
+
+						<div class="columns2">
+							<div class="column large"><span style="font-size:1.5em;">90%</span><br>of features in Linux.</div>
+							<div class="column large"><span style="font-size:1.5em;">81%</span><br>of features in eCos.</div>
+						</div>
+						</div>
+					</section>
+
+					<section>
+						<h2>Prioritizing Direct Implications</h2>
+						<div class="columns2">
+							<div class="column small"><img src="figs/incomplete-boost-linux.svg" alt="" style="zoom: 1.3"><br>Linux</div>
+							<div class="column small"><img src="figs/incomplete-boost-ecos.svg" alt="" style="zoom: 1.3"><br>eCos</div>
+						</div>
+						RIFs with Prioritizing order in black, without in gray.
+					</section>
+
+
+					<section>
+						<h2>Evaluating RAFs</h2>
+
+						<p class="lead medskip">How many features need to be examined to find the reference parent for 75% of features using the RAFs?</p>
+
+
+						<div class="fragment">
+						<div class="columns2">
+							<div class="column large">at most<div style="padding: .25em 0; font-size:1.5em;">6%</div>of all features in Linux.</div>
+							<div class="column large">at most<div style="padding: .25em 0; font-size:1.5em;">3%</div>of all features in eCos.</div>
+						</div>
+
+						<div class="large">at most<div style="padding: .25em 0; font-size:1.5em;">3%</div>of all features in FreeBSD.</div>
+						</div>
+
+					</section>
+				</section>
 
 					<section>
 						<h2>Publications</h2>
@@ -851,16 +998,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<ul>
 							<li>Classified scenarios from roughly 20 papers into 4 categories based on their input artifacts.</li>
 							<li>Derived 6 workflows showing commonality and difference between synthesis scenarios.</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Addressed Scenarios</h2>
-
-						<ul>
-							<li>Configurable Platform</li>
-							<li>Variants</li>
-							<li>Model Management Operations</li>
 						</ul>
 					</section>
 
@@ -885,12 +1022,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 						<img src="figs/flow-late.tex.svg" width="140%" class="no-border">
 					</section>
 
-					<section>
-						<h2>Challenge of Feature Model Synthesis</h2>
-						<img src="figs/fd-1.tex.svg" class="no-border">
-						<img src="figs/fd-2.tex.svg" class="no-border">
-						<img src="figs/fg.tex.svg" class="no-border">
-					</section>
 				</section>
 
 
@@ -909,18 +1040,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</section>
 				</section>
 
-
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
@@ -938,154 +1057,6 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</script>
 				</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
 			</div>
 
 		</div>

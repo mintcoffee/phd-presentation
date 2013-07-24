@@ -88,7 +88,7 @@ $accentColor: #474497;
 
 	}
 
-	.slide-number {
+	p.slide-number {
 	  position: absolute;
 	  z-index: 1000;
 	  width: 100px;
@@ -97,7 +97,7 @@ $accentColor: #474497;
 	  text-align: center;
 	  margin-left: -50px;
 	  font-family: "Source Sans Pro", sans-serif;
-	  font-size: .6em !important;
+	  font-size: 16px;
 	}
 
 	.bg {
@@ -142,12 +142,37 @@ $accentColor: #474497;
 		td {
 			font-size: .8em;
 			border: 0;
+			padding: 0 .3em;
 		}
 		thead {
 			td {
 				border-bottom: 3px solid black;
 			}
 		}
+	}
+
+	dl.inline {
+		display: inline-block;
+		dt {
+			margin: 0;
+		}
+		dt {
+			display: inline-block;
+			width: 130px;
+			vertical-align: top;
+			text-align: right;
+			margin-right: 20px;
+		}
+		dd {
+			display: inline-block;
+			vertical-align: top;
+			width: 300px;
+			margin-bottom: .3em;
+		}
+	}
+
+	.lighten {
+		color: lighten($mainColor, 30%);
 	}
 }
 
