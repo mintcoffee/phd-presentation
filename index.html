@@ -557,22 +557,24 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 						<ul>
-							<li>Given a propositional formula, builds an <strong class="alert">Implication Graph</strong>.</li>
+							<li>Given a formula, \(\varphi\), build an <strong class="alert">Implication Graph</strong>.</li>
+							<li>Each edge \((u,v)\) is an implication such that \(\varphi \land u \rightarrow v\)</li>
 							<li>Describes all possible hierarchies as a DAG.</li>
 						</ul>
 					</section>
 
 
 					<section>
-						<h2>Group and CTC Recovery</h2>
+						<h2 class="medskip">Group and CTC Recovery</h2>
 
-
-						<ul>
-							<li>Identifies mutex-, xor-, and or-groups.</li>
-							<li></li>
-						</ul>
-
-						TODO
+						<dl>
+							<dt>Mutex Groups \([0..1]\)</dt>
+							<dd>Maximal cliques in the Mutex Graph.</dd>
+							<dt>Or Groups \([1..n]\)</dt>
+							<dd>Given a parent \(p\), prime implicates of \(\varphi \land p\).</dd>
+							<dt>Xor Groups \([1..1]\)</dt>
+							<dd>Groups that are both Mutex and Or groups.</dd>
+						</dl>
 					</section>
 
 					<section data-background="#C3D6EB">
@@ -865,7 +867,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 						<p class="medskip">Given a selected feature \(s\) and another feature \(p\), define similarity measure \(\delta(p,s)\) that:</p>
 
-						<ol>
+						<ol class="small" style="margin-left: 2.5em;">
 							<li>Takes the common words in the descriptions of p and s,</li>
 							<li>counts the number of occurrences of each shared word in p's description,</li>
 							<li>weigh each shared word by its <em>Inverse Document Frequency</em> and sum up.</li>
@@ -969,15 +971,24 @@ options INET6        #IPv6 communications protocols</code></pre>
 
 
 						<div class="fragment">
-						<div class="columns2">
+						<div class="columns2 medskip">
 							<div class="column large">at most<div style="padding: .25em 0; font-size:1.5em;">6%</div>of all features in Linux.</div>
 							<div class="column large">at most<div style="padding: .25em 0; font-size:1.5em;">3%</div>of all features in eCos.</div>
 						</div>
 
 						<div class="large">at most<div style="padding: .25em 0; font-size:1.5em;">3%</div>of all features in FreeBSD.</div>
 						</div>
+					</section>
+
+					<section>
+						<h2>RAFs under Incomplete Input</h2>
+						<img src="figs/incomplete-all.svg" alt="" style="zoom: 1.5;">
+
+						<p class="text-center">Randomly removed 25%, 50%, and 75% of words from all descriptions.</p>
 
 					</section>
+			
+
 				</section>
 
 					<section>
