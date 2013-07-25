@@ -661,7 +661,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<h2 class="medskip">Dataset Characteristics</h2>
 
 						<ul class="smallskip">
-							<li>267 feature models from the SPLOT model repository and the Linux variability model with 5426 features.</li>
+							<li>267 feature models from the SPLOT model repository and the Linux variability model with <strong class="alert">5426 features</strong>.</li>
 							<li>20 randomly generated FMs with 3CNF constraints.</li>
 						</ul>
 
@@ -763,9 +763,34 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 
 					<section>
-						<h2>Feature Graph Extraction Summary</h2>
+						<h2 class="medskip">Feature Graph Extraction Summary</h2>
+						
+						<div style="display: inline-block; vertical-align: middle; margin-top: -30px;">
+						<p class="fragment" data-fragment-index="1" style="display: inline-block; font-size: 3em;">FGE</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">(</p>
+						<p style="display: inline-block;">
+							{ OS, staging },<br>
+							{ OS, staging, net},<br>
+							{ OS, staging, net, dst}
+						</p>
+						<p style="display: inline-block; font-size: 5em; font-weight: 200;">)</p>
+						</div>
 
-						TODO Publications
+						<div class="fragment" style="display: inline-block; vertical-align: middle; font-size: 2em" data-fragment-index="1">
+							\(\mapsto\)</div>
+
+						<div class="fragment" style="display: inline-block; vertical-align: middle;" data-fragment-index="1">
+							<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2;">
+						</div>
+
+						<div class="medskip"></div>
+
+						<ul class="fragment" data-fragment-index="2">
+							<li>Feature graph is maximal and complete.</li>
+							<li>Far more efficient than the BDD-based algorithm.</li>
+							<li>Comparable to the FCA-based algorithm by Ryssel et al., except for 5 models where our algorithm was faster.</li>
+						</ul>
+						
 					</section>
 
 				</section>
@@ -877,12 +902,16 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<dd><div>Type of local area<br> <strong class="alert">network</strong>ing</div></dd>
 						</dl>
 
-						<dl class"small" style="display: inline-block; width: 300px; vertical-align: top;">
+						<div class="fragment" style="display: inline-block; width: 300px; vertical-align: top;">
+
+					<dl class"small">
 							<dt class="small">1. networking</dt>
 							<dt class="small">2. ethernet</dt>
 							<dt class="small">3. os_kernel</dt>
 							<dt class="small">4. scheduler</dt>
 						</dl>
+
+						</div>
 
 
 
@@ -1084,6 +1113,16 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<section data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Kconfig Language and Models</h1>
 					</section>
+					<section>
+						<h2>Kconfig and Linux</h2>
+
+						TODO
+
+						<ul>
+							<li>The Kconfig language was developed specifically to meet the needs of the Linux kernel.</li>
+							<li>Reverse engineered formal semantics and translated it to propositional logic.</li>
+						</ul>
+					</section>
 					<section data-state="kconfig">
 						<h2>Size of Analyzed Kconfig Models</h2>
 
@@ -1206,7 +1245,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 		  window.jsprettify.run();
 		</script>
 
-		<script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 	</body>
 </html>
