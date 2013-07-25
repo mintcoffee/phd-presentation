@@ -1,6 +1,9 @@
 .DS_Store
 .svn
-log/*.log
+*.log
 tmp/**
 node_modules/
 .sass-cache
+*.swp
+figs/tikz/*.aux
+figs/tikz/*.pdf

@@ -144,7 +144,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 				</section>
 
 				<section>
-					<section>
+					<section  id="scenarios">
 						<h2>What is Feature Model Synthesis?</h2>
 
 						<p class="lead">
@@ -231,16 +231,16 @@ options INET6        #IPv6 communications protocols</code></pre>
 					</p>
 				</section>
 
-				<section>
+				<section id="publications">
 					<h2>Contributions</h2>
 					<ol class="publications">
 						<li><strong class="alert">Feature Graph Extraction</strong>
 							<ul>
-								<li>She, Ryssel, Andersen, Wasowski, Czarnecki, &ldquo;Efficient
+								<li><strong class="alert">She</strong>, Ryssel, Andersen, Wasowski, Czarnecki, &ldquo;Efficient
 synthesis of feature models,&rdquo; submitted for review in Journal of  Information and Software Technology, 2013.</li>
-							<li>She, Czarnecki, and Wasowski, &ldquo;Usage scenarios for feature model synthesis,&rdquo; in VARY Workshop, 2012.</li>
+							<li><strong class="alert">She</strong>, Czarnecki, and Wasowski, &ldquo;Usage scenarios for feature model synthesis,&rdquo; in VARY Workshop, 2012.</li>
 <li>
-	Andersen, Czarnecki, She, Wasowski, &ldquo;Efficient synthesis of feature models,&rdquo; in SPLC, 2012.
+	Andersen, Czarnecki, <strong class="alert">She</strong>, Wasowski, &ldquo;Efficient synthesis of feature models,&rdquo; in SPLC, 2012.
 </li>
 							</ul>
 							
@@ -254,16 +254,17 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<ol class="publications" start="2">
 						<li><strong class="alert">Feature Tree Synthesis</strong>
 							<ul>
-								<li>She, Lotufo, Berger, W&#261;sowski, Czarnecki, &ldquo;Reverse engineering feature models,&rdquo; in ICSE, 2011.</li>
+								<li><strong class="alert">She</strong>, Lotufo, Berger, W&#261;sowski, Czarnecki, &ldquo;Reverse engineering feature models,&rdquo; in ICSE, 2011.</li>
 							</ul>
 						</li>
 						<li>Kconfig &amp; the Linux Variability Model
 							<ul>
-								<li>She, Lotufo, Berger, W&#261;sowski, Czarnecki. &ldquo;The variability model of the linux kernel,&rdquo; in VaMoS, 2010.</li>
+								<li><strong class="alert">She</strong>, Lotufo, Berger, W&#261;sowski, Czarnecki. &ldquo;The variability model of the linux kernel,&rdquo; in VaMoS Workshop, 2010.</li>
 
-								<li>Berger, She, Lotufo, Wasowski, Czarnecki, &ldquo;Variability modeling in the real: a perspective from the operating systems domain,&rdquo;in ASE, 2010.
-
+								<li>Berger, <strong class="alert">She</strong>, Lotufo, Wasowski, Czarnecki, &ldquo;Variability modeling in the real: a perspective from the operating systems domain,&rdquo; in ASE, 2010.
 								</li>
+
+								<li>Berger, <strong class="alert">She</strong>, Lotufo, W&#261;sowski, Czarnecki. &ldquo;A Study of Variability Models and Languages in the Systems Software Domain,&rdquo; accepted in Transaction of Software Engineering, 2013.</li>
 							</ul>
 						</li>
 					</ol>
@@ -272,7 +273,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 
 				<section>
-					<section data-background="#1B325F" data-state="inverse">
+					<section id="fge" 	data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Feature Graph Extraction</h1>
 					</section>
 
@@ -787,8 +788,8 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 						<ul class="fragment" data-fragment-index="2">
 							<li>Feature graph is maximal and complete.</li>
-							<li>Far more efficient than the BDD-based algorithm.</li>
-							<li>Comparable to the FCA-based algorithm by Ryssel et al., except for 5 models where our algorithm was faster.</li>
+							<li>Fge-CNF is far more efficient than the BDD-based algorithm.</li>
+							<li>Fge-DNF is comparable to the FCA-based algorithm by Ryssel et al., except for 5 models where our algorithm was faster.</li>
 						</ul>
 						
 					</section>
@@ -796,8 +797,8 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 				</section>
 
 
-				<section id="fts">
-					<section data-background="#1B325F" data-state="inverse">
+				<section>
+					<section  id="fts" data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Feature Tree Synthesis</h1>
 					</section>
 					<section  data-background="#C3D6EB">
@@ -1114,23 +1115,23 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<h1 class="title">Kconfig Language and Models</h1>
 					</section>
 					<section>
-						<h2>Kconfig and Linux</h2>
-
-						TODO
-
-						<ul>
-							<li>The Kconfig language was developed specifically to meet the needs of the Linux kernel.</li>
-							<li>Reverse engineered formal semantics and translated it to propositional logic.</li>
-						</ul>
+						<h2>The Kconfig Variability Modeling Language</h2>
+						<dl>
+							<dt>Motivation</dt>
+							<dd>Variability models available to researchers were small and typically gathered from academic papers.<br>e.g., largest model in SPLOT has 290 features</dd>
+							<dt>Contribution</dt>
+							<dd>
+								<p>The Kconfig language was developed specifically to meet the variability modeling needs of the Linux kernel.</p>
+								<p>Reverse engineered semantics of the Kconfig language and analyzed models from 12 open source projects.</p>
+							</dd>
+						</dl>
 					</section>
 					<section data-state="kconfig">
 						<h2>Size of Analyzed Kconfig Models</h2>
+						<img src="figs/tse-size-kconfig.svg">
 
-						TODO
-
-						<div class="text-center">
-							<img src="../tse/out/tse-size-kconfig.svg">
-						</div>
+						<p class="text-center">Largest variability models available to researchers.</p>
+						<p class="text-center">Used the Linux model for evaluating our tools.</p>
 					</section>
 				</section>
 
@@ -1184,6 +1185,12 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							</li>
 						</ol>
 					</section>			
+					<section>
+						
+						<p class="text-center" style="font-size: .75em;"><strong>Links</strong>:
+						<a href="#publications">Publications</a>, <a href="#scenarios">Scenarios</a>, <a href="#fge">Feature Graph Extraction</a>, <a href="#fts">Feature Tree Synthesis</a>.
+					</section>
+					</p>
 				</section>
 
 
