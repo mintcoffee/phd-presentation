@@ -1,0 +1,27 @@
+  \begin{tikzpicture}
+    \node (pm) {\color{blue}pm};
+    \node[right=2em of pm,yshift=-1em] (acpi) {\color{red}acpi};
+    \node[below=of acpi,xshift=1.75em,yshift=1.25em] (system) {\color{red}acpi\_system};
+    \node[left=2em of pm,yshift=-1em] (cpu) {\color{blue}cpu\_freq};
+    \node[below=of cpu,xshift=-2.5em] (perf) {performance};
+    \node[below=of cpu,yshift=-2.5em] (power) {\color{red}powersave};
+    \node[right=of power] (hotplug) {\color{red}cpu\_hotplug};
+
+    \draw[-stealth'] (acpi) -- (pm);
+    \draw[-stealth'] (system) -- (pm);
+    \draw[stealth'-stealth'] (acpi) -- (system);
+    \draw[-stealth'] (hotplug) -- (system);
+    \draw[-stealth'] (hotplug) edge[bend left] (acpi);
+    \draw[-stealth'] (hotplug) -- (power);
+    \draw[-stealth'] (power) edge[bend right] (cpu);
+    \draw[-stealth'] (perf) -- (cpu);
+    \draw[-stealth'] (cpu) -- (pm);
+
+    \begin{scope}[-stealth',draw=black!60,dashed]
+      \draw (hotplug) -- (pm);
+      \draw (hotplug) -- (cpu);
+      \draw (perf) -- (pm);
+      \draw (power) -- (pm);
+    \end{scope}
+  \end{tikzpicture}
+
