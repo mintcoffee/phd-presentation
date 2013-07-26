@@ -47,7 +47,7 @@
 					<section>
 						<h2>What is Variability in Software?</h2>
 
-						<p class="lead">
+						<p class="lead" style="font-size: 1em;">
 							Variability in a software system is its ability for a system to adapt and customize for a particular context.
 						</p>
 						<p class="text-right">&mdash;van Gurp et al., 2001</p>
@@ -507,8 +507,8 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 						<div style="display: inline-block; width: 400px; vertical-align: middle; font-size: .9em;">\[
 							\begin{aligned}
-							&amp;(\mathsf{OS} \land \mathsf{staging}) \lor \\
-							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} ) \lor \\
+							&amp;(\mathsf{OS} \land \mathsf{staging} \land \lnot \mathsf{net} \land \lnot\mathsf{dst}) \lor \\ 
+							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} \land \lnot\mathsf{dst}) \lor \\
 							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} \land \mathsf{dst})
 							\end{aligned}
 						\]</div>
@@ -749,11 +749,17 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							</tbody>
 						</table>
 
-							<p class="small text-center medskip">Fge-CNF is <strong class="alert">significantly faster</strong> than the BDD-based algorithm for computing OR-Groups on the SPLOT dataset.</p>
+							<p class="small text-center">Fge-CNF is <strong class="alert">significantly faster</strong> than the BDD-based algorithm for computing OR-Groups on the SPLOT dataset.</p>
 
-							<div class="fragment">
+							<div class="columns2 fragment">
+								<div class="column">
+									<h4>Linux</h4>
+							<p class="small text-center">Fge-CNF completed in 7 hours.<br>The BDD-based algorithm ran out of memory.</p>
+								</div>
+								<div class="column">
 							<h4>Generated Dataset</h4>
-							<p class="small text-center">The BDD-based algorithm <strong class="alert">timed out</strong> for computing OR-Groups on all models, while Fge-CNF succeeded 12 models.</p>
+							<p class="small text-center">Fge-CNF completed 12 models.<br>The BDD-based algorithm <strong class="alert">timed out</strong> on all models.</p>
+								</div>
 							</div>
 						</dl>
 
@@ -791,7 +797,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							</tbody>
 						</table>
 
-						<p class="small text-center">Performance of Fge-DNF is similar to that of the FCA-based algorithm.</p>
+						<p class="small text-center">Performance of Fge-DNF is similar to that of the FCA-based algorithm, <strong class="alert">except for 5 models</strong> where Fge-DNF was significantly faster.</p>
 					</section>
 
 					<section>
@@ -875,7 +881,9 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							</div>
 						</div>
 						<div class="bigskip"></div>
-						<p class="text-center">How do we derive a single hierarchy out of all possible hierarchies?</p>
+						<p class="text-center smallskip">How do we select a hierarchy out of all possible hierarchies?</p>
+
+						<p class="text-center alert">We combine logical constraints<br> with a textual similarity heuristic.</p>
 					</section>
 
 
