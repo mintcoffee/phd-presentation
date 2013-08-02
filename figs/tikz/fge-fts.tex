@@ -1,0 +1,24 @@
+\begin{tikzpicture}[node distance=1.5cm]
+\node[box, fds, align=center] (dag) {Feature Graph\\Extraction};
+\node[box, fds, align=center, right=of dag] (tree) {Feature Tree\\Synthesis};
+
+\begin{scope}[-stealth']
+\draw ($(dag.west)-(2,-.3)$) -- ($(dag.west)+(0,.3)$) 
+	node[l,pos=1,anchor=south east, align=right,xshift=-1em] {Configurations or\\Dependencies};
+
+\draw ($(dag.west)+(-2,-.3)$) -- ($(dag.west)+(0,-.3)$)
+	node[l,pos=1, anchor=south east, align=right,xshift=-1em] {Features};
+
+\draw (dag) -- (tree)
+	node[l, pos=0, anchor=south west,align=left] {Feature\\Graph};
+
+\draw($(tree.south)-(0,1)$) -- (tree.south)
+	node[l, align=left, anchor=west, pos=.4] {User Input,\\Heuristics};
+
+\draw (tree) -- ($(tree.east)+(.8,0)$)
+	node[l,pos=0,anchor=south west, xshift=.1em,align=left] {Feature\\Model};
+
+
+\end{scope}
+
+\end{tikzpicture}

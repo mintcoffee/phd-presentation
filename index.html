@@ -105,7 +105,7 @@ options INET6        #IPv6 communications protocols</code></pre>
 					<ul>
 						<li>FreeBSD is configured by setting values to config options.</li>
 						<li>Features and dependencies are scattered over documentation and code.</li>
-						<li>Difficult to have an overview  of the variability in the software system.</li>
+						<li>Difficult to get an <strong class="alert">overview of the variability</strong>.</li>
 					</ul>
 					</section>
 
@@ -294,6 +294,13 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						</li>
 					</ol>
 				</section>
+
+					<section>
+						<h2>Feature Model Synthesis Workflow</h2>
+
+						<img src="figs/fge-fts.tex.svg" style="zoom: 2;" class="no-border">
+					</section>
+
 				</section>
 
 
@@ -301,6 +308,8 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<section id="fge" 	data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Feature Graph Extraction</h1>
 					</section>
+
+
 
 					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
@@ -467,7 +476,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2.5;">
 						</div>
 						<ul style="float: left; width: 600px; margin-top: 30px;">
-							<li>Encapsulates all diagrams that are complete.</li>
+						<li>Encapsulates <strong class="alert">all feature diagrams</strong> that are complete.</li>
 							<li>DAG as hierarchy, and overlapping feature groups.</li>
 						</ul>
 						<div class="clearfix"></div>
@@ -489,61 +498,65 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>
 
 					<section>
-						<h2 class="bigskip">DNF Input</h2>
+						<h3>Input as Configuration</h3>
 
 						<div style="margin-top: -30px; display: inline-block; vertical-align: middle;">
-						<p style="display: inline-block; font-size: 5em; font-weight: 200;">{</p>
-						<p style="display: inline-block;">
+						<p style="display: inline-block; font-size: 4em; font-weight: 200;">{</p>
+						<p style="display: inline-block; font-size: .8em;">
 							{ OS, staging },<br>
 							{ OS, staging, net},<br>
 							{ OS, staging, net, dst}
 						</p>
-						<p style="display: inline-block; font-size: 5em; font-weight: 200;">}</p>
+						<p style="display: inline-block; font-size: 4em; font-weight: 200;">}</p>
 						</div>
 
 						<div style="display: inline-block; vertical-align: middle; font-size: 1.5em;">
 						\( \mapsto \)
 						</div>
 
-						<div style="display: inline-block; width: 400px; vertical-align: middle; font-size: .9em;">\[
+						<div style="display: inline-block; position: relative; width: 400px; vertical-align: middle; font-size: .7em;">\[
 							\begin{aligned}
 							&amp;(\mathsf{OS} \land \mathsf{staging} \land \lnot \mathsf{net} \land \lnot\mathsf{dst}) \lor \\ 
 							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} \land \lnot\mathsf{dst}) \lor \\
 							&amp;(\mathsf{OS} \land \mathsf{staging} \land \mathsf{net} \land \mathsf{dst})
 							\end{aligned}
-						\]</div>
-						<p class="lead"><strong class="alert">A set of configurations</strong> represented as a DNF formula.</p>
-					</section>
+						\]
+						</div>
 
-					<section>
-						<h2 class="bigskip">CNF Input</h2>
+						<div class="smallskip"></div>
+						<p class="text-center small">Configurations represented as DNF formula.</p>						
 
-						<p style="display: inline-block; font-size: 5em; font-weight: 200; vertical-align: middle;">{</p>
-						<div style="display: inline-block; vertical-align: middle; font-size: .9em;">\[
+						<div class="fragment">
+						<div class="medskip"></div>
+						<!-- <p class="lead"><strong class="alert">A set of configurations</strong> represented as a DNF formula.</p> -->
+						<h3>Input as Dependencies</h3>
+
+						<p style="display: inline-block; font-size: 4em; font-weight: 200; vertical-align: middle;">{</p>
+						<div style="display: inline-block; vertical-align: middle; font-size: .7em;">\[
 							\begin{aligned}
 							\mathsf{staging} \lor \mathsf{net} &amp;\rightarrow \mathsf{OS} \\
 							\mathsf{dst} &amp;\rightarrow \mathsf{net} \\
 							\mathsf{OS} &amp;\rightarrow \mathsf{staging}
 							\end{aligned}
 						\]</div>
-						<p style="display: inline-block; font-size: 5em; font-weight: 200;  vertical-align: middle;">}</p>
+						<p style="display: inline-block; font-size: 4em; font-weight: 200;  vertical-align: middle;">}</p>
 
 						<div style="display: inline-block; vertical-align: middle; font-size: 1.5em;">
 						\( \mapsto \)
 						</div>
-						<div style="display: inline-block; vertical-align: middle; font-size: .9em;" class="smallskip">\[
+						<div style="display: inline-block; vertical-align: middle; font-size: .7em;">\[
 							\begin{aligned}
-							&amp;(\lnot\mathsf{staging} \lor \mathsf{OS}) \land \\
-							&amp;(\lnot\mathsf{net} \lor \mathsf{OS}) \land \\
+							&amp;(\lnot\mathsf{staging} \lor \mathsf{OS}) \land (\lnot\mathsf{net} \lor \mathsf{OS}) \land \\
 							&amp;(\lnot \mathsf{dst} \lor \mathsf{net}) \land \\
 							&amp;(\lnot\mathsf{OS} \lor \mathsf{staging})
 							\end{aligned}
 						\]</div>						
-
-						<p class="lead"><strong class="alert">Dependencies</strong> represented as a CNF Formula.</p>
+						<div class="smallskip"></div>						
+						<p class="text-center small">Dependencies represented as a CNF Formula.</p>
+						</div>
 					</section>
 
-					<section data-background="#C3D6EB">
+<!-- 					<section data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
 							<dt><strong class="alert">Input</strong></dt>
@@ -556,31 +569,32 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<dd>Use user input or heuristics to select a distinct feature hierarchy.</dd>
 						</dl>
 					</section>
-
+ -->
 					<section>
 						<h2>Feature Graph Extraction (Fge)</h2>
 
 						
 						<div style="display: inline-block; vertical-align: middle; margin-top: -30px;">
 						
-						<p  style="display: inline-block; vertical-align: middle; font-size: 2.5em;">FGE(\(\varphi_{ \tiny \mathrm{CNF}, \mathrm{DNF} } \))</p>
+						<p  style="display: inline-block; vertical-align: middle; font-size: 2.5em;"><span data-fragment-index="2" class="fragment">FGE(</span><span>\(\varphi_{ \tiny \mathrm{CNF}, \mathrm{DNF} } \)</span><span class="fragment" data-fragment-index="2">)</span></p>
 
-						<div style="display: inline-block; vertical-align: middle; font-size: 2em">
+						<div style="display: inline-block; vertical-align: middle; font-size: 2em" class="fragment" data-fragment-index="2">
 							\(\mapsto\)</div>
 
-						<div style="display: inline-block; vertical-align: middle;">
+						<div style="display: inline-block; vertical-align: middle;" class="fragment" data-fragment-index="2">
 							<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2;">
 						</div>						
 
-						<div class="fragment smallskip" data-fragment-index="2">
+						<div class="fragment smallskip" data-fragment-index="3">
 							<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
 						</div>
-						<ul class="fragment" data-fragment-index="2">
+						<ul class="fragment" data-fragment-index="3">
+							<li><strong class="alert">Fully automatic</strong> algorithm for generating feature graphs.</li>
 							<li>Algorithm uses a SAT solver.</li>
 						</ul>
 					</section>
 
-
+<!-- 
 					<section>
 						<h2>Two Crucial Steps</h2>
 						<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
@@ -594,7 +608,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<dd>Recovers feature groups and cross-tree constraints.</dd>
 						</dl>
 					</section>
-					
+					 -->
 
 					<section>
 						<h2 class="smallskip">DAG Hierarchy Recovery</h2>
@@ -624,9 +638,9 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 						<dl>
 							<dt>Mutex Groups \([0..1]\)</dt>
-							<dd>Maximal cliques in the <strong class="alert">Mutex Graph</strong> where an edge \((u,v)\) exists if \( \varphi \land u \rightarrow \lnot v \).</dd>
+							<dd>Find <strong class="alert">maximal cliques</strong> in the <strong class="alert">mutex graph</strong> where an edge \((u,v)\) exists if \( \varphi \land u \rightarrow \lnot v \).</dd>
 							<dt>Or Groups \([1..n]\)</dt>
-							<dd>Given a parent \(p\), <strong class="alert">prime implicates</strong> of \(\varphi \land p\) with the form \(f_1 \lor f_2 \lor \ldots \lor f_k \).
+							<dd>Given a parent \(p\), find <strong class="alert">prime implicates</strong> of \(\varphi \land p\) with the form \(f_1 \lor f_2 \lor \ldots \lor f_k \).
 							<br>
 
 							</dd>
@@ -649,19 +663,18 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						</dl>
 					</section>
 
-
 					<section>
 						<h2>Experimental Evaluation</h2>
 
 
 						<dl>
 							<dt>Purpose</dt>
-							<dd>Evaluate <strong class="alert">performance</strong> of our algorithms by comparing to related algorithms with same inputs and outputs a feature graph.</dd>
+							<dd>Evaluate <strong class="alert">performance</strong> of our algorithms by comparing to other algorithms that build a feature graph.</dd>
 							<dt>Dataset</dt>
 							<dd><strong class="alert">Input representative of synthesis scenarios</strong>.<br>Derive input from FMs in a FM repository, generated FMs, and the Linux variability model.
 							</dd>
 							<dt>Measure</dt>
-							<dd><strong class="alert">Time</strong> needed to compute each part of a feature graph.</dd>
+							<dd><strong class="alert">Time</strong> needed to compute each part of a feature graph.<br>Quality does not need to evaluated.<br>Feature graph encapsulates all complete feature diagrams.</dd>
 						</dl>
 
 <!-- 						<ul class="smallskip">
@@ -673,36 +686,88 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
  -->					</section>
 
 					<section>
-						<h2>Two Baseline Implementations</h2>
+						<h2>Evaluation Algorithms</h2>
 
-						<h3 style="font-size: 1.1em;">Fge-CNF vs. BDD-Based</h3>
-						<ul style="width: 600px;">
-							<li><strong class="alert">Dependencies</strong> as input.</li>
-							<li>By Czarnecki and W&#261;sowski.</li>
-							<li>Scaled to at most 300 features in past evaluations.</li>
-						</ul>
+						<h3>Fge-CNF Evaluation</h3>
+
+						<table style="margin: auto;">
+							<thead>
+							<tr>
+								<td></td>
+								<td><strong>Fge-CNF</strong></td>
+								<td><strong>BDD-Based</strong> [Czarnecki and W&#261;sowski]</td>
+							</tr>
+							</thead>
+
+							<tr>
+								<td class="text-right"><strong>Input</strong></td>
+								<td>Dependencies</td>
+								<td>Dependencies</td>
+							</tr>
+
+							<tr>
+								<td class="text-right"><strong>Technique</strong></td>
+								<td>SAT Solver</td>
+								<td>Binary Decision Diagrams (BDDs)</td>
+							</tr>
+
+						</table>
 
 						<div class="bigskip"></div>
 
-						<h3 style="font-size: 1.1em;">Fge-DNF vs. FCA-Based</h3>
-						<ul  style="width: 600px;">
-							<li><strong class="alert">Configurations</strong> as input.</li>
-							<li>By Ryssel et al.</li>
-							<li>Based on <strong class="alert">Formal Concept Analysis</strong>.</li>
-						</ul>
+						<div class="fragment">
+						<h3>Fge-DNF Evaluation</h3>
 
+						<table style="margin: auto;">
+							<thead>
+							<tr>
+								<td></td>
+								<td><strong>Fge-DNF</strong></td>
+								<td><strong>FCA-Based</strong> [Ryssel et al.]</td>
+							</tr>
+							</thead>
+
+							<tr>
+								<td class="text-right"><strong>Input</strong></td>
+								<td>Configurations</td>
+								<td>Configurations</td>
+							</tr>
+
+							<tr>
+								<td class="text-right"><strong>Technique</strong></td>
+								<td>SAT</td>
+								<td>Formal Concept Analysis and<br>Set Cover</td>
+							</tr>
+						</table>						
+						</div>
 
 					</section>
 
 					<section>
-						<h2 class="medskip">Dataset Characteristics</h2>
+						<h2 class="smallskip">Dataset Characteristics</h2>
 
-						<ul class="smallskip">
-							<li>267 feature models from the SPLOT model repository and the Linux variability model with <strong class="alert">5426 features</strong>.</li>
-							<li>20 randomly generated FMs with 3CNF constraints.</li>
-						</ul>
+						<div class="columns2">
+							<div class="column">
+								<h4 class="text-left">SPLOT Model Repository</h4>
+								<ul class="small">
+									<li>Largest, public repository of feature models.</li>
+									<li>267 FMs gathered from academic papers, experience reports, by volunteers.</li>
+								</ul>
+							</div>
+							<div class="column">
+								<h4 class="text-left">Generated Models</h4>
+								<ul class="small smallskip">
+									<li>20 generated FMs with difficult cross-tree constraints.</li>
+								</ul>
+								<h4 class="text-left">Linux Variability Model</h4>
+								<ul class="small" style="width: 100%;">
+									<li>5426 features.</li>
+								</ul>
+								
+							</div>
+						</div>
 
-						<img src="figs/splot-size.svg" alt="" style="zoom: 1.7; padding: .25em; background: white;">
+						<img src="figs/splot-size.svg" alt="" style="zoom: 1.3; padding: .25em; background: white;">
 					</section>
 
 					<section>
@@ -711,7 +776,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<dl>
 							<dt>Null Hypothesis</dt>
 							<dd>
-								For each component of Fge, (i.e., implication graph, mutex graph, OR-groups)  there is no difference in the mean computation times for Fge-CNF and Fge-BDD. 
+								For each component of Fge, (i.e., implication graph, mutex graph, OR-groups)  <strong class="alert">there is no difference in the mean computation times</strong> for Fge-CNF and Fge-BDD. 
 							</dd>
 						</dl>
 					</section>
@@ -754,11 +819,11 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<div class="columns2 fragment">
 								<div class="column">
 									<h4>Linux</h4>
-							<p class="small text-center">Fge-CNF completed in 7 hours.<br>The BDD-based algorithm ran out of memory.</p>
+							<p class="small text-center">Fge-CNF completed in 7 hours.<br>The BDD-based algorithm <strong class="alert" style="white-space: nowrap;">ran out of memory</strong>.</p>
 								</div>
 								<div class="column">
 							<h4>Generated Dataset</h4>
-							<p class="small text-center">Fge-CNF completed 12 models.<br>The BDD-based algorithm <strong class="alert">timed out</strong> on all models.</p>
+							<p class="small text-center">Fge-CNF completed 12 models.<br>The BDD-based algorithm <strong class="alert" style="white-space: nowrap;">timed out on all models</strong>.</p>
 								</div>
 							</div>
 						</dl>
@@ -766,7 +831,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>					
 
 					<section>
-						<h2>Fge-DNF vs. Fge-FCA Results</h2>
+						<h2>Fge-DNF vs. FCA-Based Results</h2>
 
 						<h4>SPLOT Dataset</h4>
 
@@ -801,9 +866,11 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>
 
 					<section>
-						<h2>Fge-DNF vs. Fge-FCA (cont.)</h2>
+						<h2>Fge-DNF vs. FCA-Based (cont.)</h2>
 	
-						<img src="figs/long-dnf-2.svg" style="zoom: 1.8; padding: .5em; background: white;">
+						<img src="figs/long-dnf-2.svg" style="zoom: 1.5; padding: .2em; background: white;">
+
+						<p class="text-center">Models had a large number of sibling features at the root.<br>Large search space for groups for FCA-based algorithm.</p>
 					</section>
 
 
@@ -811,29 +878,21 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<h2 class="medskip">Feature Graph Extraction Summary</h2>
 						
 						<div style="display: inline-block; vertical-align: middle; margin-top: -30px;">
-						<p class="fragment" data-fragment-index="1" style="display: inline-block; font-size: 3em;">FGE</p>
-						<p style="display: inline-block; font-size: 5em; font-weight: 200;">(</p>
-						<p style="display: inline-block;">
-							{ OS, staging },<br>
-							{ OS, staging, net},<br>
-							{ OS, staging, net, dst}
-						</p>
-						<p style="display: inline-block; font-size: 5em; font-weight: 200;">)</p>
+						<p  style="display: inline-block; vertical-align: middle; font-size: 2.5em;"><span>FGE(</span><span>\(\varphi_{ \tiny \mathrm{CNF}, \mathrm{DNF} } \)</span><span>)</span></p>
 						</div>
 
-						<div class="fragment" style="display: inline-block; vertical-align: middle; font-size: 2em" data-fragment-index="1">
+						<div style="display: inline-block; vertical-align: middle; font-size: 2em">
 							\(\mapsto\)</div>
 
-						<div class="fragment" style="display: inline-block; vertical-align: middle;" data-fragment-index="1">
+						<div style="display: inline-block; vertical-align: middle;">
 							<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2;">
 						</div>
 
-						<div class="medskip"></div>
+						<div class="smallskip"></div>
 
-						<ul class="fragment small" data-fragment-index="2">
-							<li>Feature graph is maximal and complete.</li>
-							<li>Fge-CNF is far more efficient than the BDD-based algorithm.</li>
-							<li>Fge-DNF is comparable to the FCA-based algorithm by Ryssel et al., except for 5 models where our algorithm was faster.</li>
+						<ul>
+							<li>Fully automated algorithm.</li>
+							<li>Feature graph describes <strong class="alert">all possible feature diagrams</strong> that are complete for a given input.</li>
 						</ul>
 						
 					</section>
@@ -845,6 +904,17 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<section  id="fts" data-background="#1B325F" data-state="inverse">
 						<h1 class="title">Feature Tree Synthesis</h1>
 					</section>
+
+					<section>
+						<h2>Feature Model Synthesis Workflow</h2>
+
+						<div>
+							<img src="figs/fge-fts.tex.svg" style="zoom: 2;" class="no-border">
+						</div>
+
+					</section>
+
+
 					<section  data-background="#C3D6EB">
 						<h2>Requirements for FM Synthesis</h2>
 						<dl>
@@ -864,40 +934,38 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<h2>Selecting a Hierarchy</h2>
 						<div class="columns2" style="position: relative;">
 							<div style="padding-top: .5em; display: inline-block; vertical-align: middle;width: 40%;">
-							<p style="display: inline-block; font-size: 4em; font-weight: 200;">{</p>
-							<p style="display: inline-block; font-size: .8em;">
-								{ OS, staging },<br>
-								{ OS, staging, net},<br>
-								{ OS, staging, net, dst}
-							</p>
-							<p style="display: inline-block; font-size: 4em; font-weight: 200;">}</p>
-							<div class="caption" style="width: 40%;">Input</div>
-							</div>
-							<div class="column" style="width: 25%;"><img src="figs/fd-1.tex.svg" alt="" class="no-border" style="zoom: 1.8;">
-							<div class="caption" style="width: 25%;">FD<sub>1</sub></div>
+							<img src="figs/fg.tex.svg" class="no-border" style="zoom: 2;">
+							<div class="caption" style="width: 40%;">Feature Graph</div>
 							</div>
 							<div class="column" style="width: 25%;"><img src="figs/fd-2.tex.svg" alt="" class="no-border" style="zoom: 1.8;">
-							<div class="caption"  style="width: 25%;">FD<sub>2</sub></div>
+							<div class="caption"  style="width: 25%;">Feature Diagram <sub>1</sub></div>
+							</div>
+							<div class="column" style="width: 25%;"><img src="figs/fd-1.tex.svg" alt="" class="no-border" style="zoom: 1.8;">
+							<div class="caption" style="width: 25%;">Feature Diagram <sub>2</sub></div>
 							</div>
 						</div>
 						<div class="bigskip"></div>
 						<p class="text-center smallskip">How do we select a hierarchy out of all possible hierarchies?</p>
 
-						<p class="text-center alert">We combine logical constraints<br> with a textual similarity heuristic.</p>
+						<p class="text-center alert">Feature Tree Synthesis combines logical constraints<br> with a textual similarity heuristic.</p>
 					</section>
 
 
 					<section>
-						<h2>Two Lists</h2>
+						<h2 class="bigskip">Two Lists of Potential Parents</h2>
 						
-						<div class="medskip">
-						<img src="figs/mockup.svg" class="no-border" style="zoom: 1.3; vertical-align: middle; margin-left: 20px;">
-					</div>
+						<div class="medskip" style="float: left; margin-right: 20px; height: 400px;">
+							<img src="figs/mockup.svg" class="no-border" style="zoom: 1.3; vertical-align: middle;">
+						</div>
 
-						<ul>
-							<li>RIFs: implied features ranked by textual similarity.</li>
-							<li>RAFs: all features ranked by textual similarity.<br>Handles incomplete input.</li>
-						</ul>
+
+						<dl class="small">
+							<dt>Ranked <strong>Implied Features</strong> (RIFs)</dt>
+							<dd>The implied features ranked by their similarity to the selected feature.</dd>
+							<dt>Ranked <strong>All Features</strong> (RAFs)</dt>
+							<dd>All features in the input ranked by their similarity. Handles incomplete input.</dd>
+						</dl>
+
 					</section>
 
 
@@ -906,7 +974,6 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 						<div>
 						<img src="figs/ig-reduced.tex.svg" class="no-border" style="zoom: 2; vertical-align: middle;"> <br>
-						<div class="small">Transitively Reduced<br>Implication Graph</div>
 						</div>
 
 						<div class="medskip"></div>
@@ -959,36 +1026,19 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					<section>
 						<h2 class="medskip">Feature Similarity Measure</h2>
 
-						<p class="medskip">Given a selected feature \(s\) and another feature \(p\), define similarity measure \(\delta(p,s)\) that:</p>
+						<p class="medskip">Given a selected feature \(s\) and another feature \(p\), define similarity measure \(\delta (IDF))\):
 
-						<ol class="small" style="margin-left: 2.5em;">
-							<li>Takes the common words in the descriptions of p and s,</li>
-							<li>counts the number of occurrences of each shared word in p's description,</li>
-							<li>weigh each shared word by its <em>Inverse Document Frequency</em> and sum up.</li>
+						<ol class="small" stye="margin-left: 2.5em;">
+							<li>Take <strong>common words</strong> in the descriptions of \(p\) and \(s\),</li>
+							<li>Sum up the occurrence of each shared word in \(p\)'s description,</li>
+							<li>weigh each word by its <em>Inverse Document Frequency</em> (IDF).</li>
 						</ol>
 
 						<div class="medskip"></div>
 
-						<p>IDF used to discount common words in the domain (e.g., choose, select, Linux).</p>
+						<p>IDF used to discount common words in the domain<br>e.g., choose, select, Linux.</p>
 					</section>
 
-
-					<section>
-						<h2 class="medskip">Feature Similarity Measure (cont.)</h2>
-
-
-						<p class="medskip">Given a selected feature \(s\) and another feature \(p\):</p>
-						<div class="small">
-						\[
-\begin{gather}
-  \label{eq:sim}
-  \delta(p,s) = \sum_{w \in [\mathrm{desc}(p) \cap \mathrm{desc}(s)]} 
-  \mathrm{count}(w, \mathrm{desc}(p)) * \mathrm{idf}(w) \\
-  \text{where } \mathrm{idf}(w) = \mathrm{log}\frac{|\mathrm{features}|}{|\{ f \in \mathrm{features} \mid \mathrm{desc}(f)\ \mathrm{contains}\ w \}|}
-\end{gather}
-						\]
-						</div>
-					</section>
 
 
 					<section>
@@ -998,9 +1048,9 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<dt>Purpose</dt>
 							<dd>Validate that the lists <strong class="alert">reduces the choices for a user to consider</strong> when building the feature hierarchy under complete and incomplete data.</dd>
 							<dt>Complete Data</dt>
-							<dd>Linux, and eCos variability models.</dd>
+							<dd>Input and reference models from Linux, and eCos.</dd>
 							<dt>Incomplete Data</dt>
-							 <dd>Built tools to extract features and dependencies from FreeBSD codebase. Manually created a reference model for part of FreeBSD.</dd>
+							 <dd>Extracted features and dependencies from FreeBSD codebase. Manually created a reference model for part of FreeBSD.</dd>
 						</dl>
 					</section>
 
@@ -1026,18 +1076,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>
 
 
-					<section>
-						<h2>FreeBSD Variability Model</h2>
-
-						<ul class="medskip">
-							<li>Manually constructed a reference model for a subset of FreeBSD.</li>
-							<li>First constructed an <strong>ontology</strong>, then traversed generalization and composition relations to create feature hierarchy.</li>
-							<li>Resulting model had <strong class="alert">192 features</strong> describing tracing, monitoring, and debugging features.</li>
-
-							<li><strong>Incomplete input</strong> (i.e., dependencies) was extracted  by applying a fuzzy parser on documentation, and identifying dependencies in #ifdef code.</li>
-
-						</ul>
-					</section>
+					
 
 
 					<section>
@@ -1054,14 +1093,14 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						</div>
 					</div>
 
-						<div class="fragment">
+<!-- 						<div class="fragment">
 						<h4 class="smallskip">Ignoring Features at Root</h4>
 
 						<div class="columns2">
 							<div class="column large"><span style="font-size:1.5em;">90%</span><br>of features in Linux.</div>
 							<div class="column large"><span style="font-size:1.5em;">81%</span><br>of features in eCos.</div>
 						</div>
-						</div>
+						</div> -->
 					</section>
 
 					<section>
@@ -1121,8 +1160,9 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<div class="column" style="width: 40%;">
 							<img src="figs/mockup.svg" alt="" class="no-border" style="zoom: 1.2;">
 							</div>
-							<div class="column small" style="width: 57%; padding-top: 2em;">
+							<div class="column small" style="width: 57%; padding-top: 1em;">
 							<ul>
+								<li>Present the <strong class="alert">potential parents of a feature</strong> to a user.</li>
 								<li>Two lists that combines logical dependencies with a textual similarity measure.</li>
 							</ul>
 							</div>
@@ -1244,6 +1284,44 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<a href="#publications">Publications</a>, <a href="#scenarios">Scenarios</a>, <a href="#fge">Feature Graph Extraction</a>, <a href="#fts">Feature Tree Synthesis</a>.
 					</section>
 					</p>
+				</section>
+
+
+				<section>
+					<section  data-background="#1B325F" data-state="inverse">
+						<h1 class="title">Extra Slides</h1>
+					</section>
+
+
+					<section>
+						<h2 class="medskip">Feature Similarity Measure (cont.)</h2>
+
+
+						<p class="medskip">Given a selected feature \(s\) and another feature \(p\):</p>
+						<div class="small">
+						\[
+\begin{gather}
+  \label{eq:sim}
+  \delta(p,s) = \sum_{w \in [\mathrm{desc}(p) \cap \mathrm{desc}(s)]} 
+  \mathrm{count}(w, \mathrm{desc}(p)) * \mathrm{idf}(w) \\
+  \text{where } \mathrm{idf}(w) = \mathrm{log}\frac{|\mathrm{features}|}{|\{ f \in \mathrm{features} \mid \mathrm{desc}(f)\ \mathrm{contains}\ w \}|}
+\end{gather}
+						\]
+						</div>
+					</section>				
+
+					<section>
+						<h2>FreeBSD Variability Model</h2>
+
+						<ul class="medskip">
+							<li>Manually constructed a reference model for a subset of FreeBSD.</li>
+							<li>First constructed an <strong>ontology</strong>, then traversed generalization and composition relations to create feature hierarchy.</li>
+							<li>Resulting model had <strong class="alert">192 features</strong> describing tracing, monitoring, and debugging features.</li>
+
+							<li><strong>Incomplete input</strong> (i.e., dependencies) was extracted  by applying a fuzzy parser on documentation, and identifying dependencies in #ifdef code.</li>
+
+						</ul>
+					</section>					
 				</section>
 
 
