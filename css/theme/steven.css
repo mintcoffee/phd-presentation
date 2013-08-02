@@ -162,11 +162,11 @@
 .reveal .lighten {
   color: gray; }
 
-.inverse .reveal {
-  background-color: #1B325F;
+.inverse {
+  background-color: transparent !important;
   color: white; }
-  .inverse .reveal h1, .inverse .reveal h2, .inverse .reveal h3, .inverse .reveal h4, .inverse .reveal h5, .inverse .reveal h6 {
-    color: inherit; }
+  .inverse h1, .inverse h2, .inverse h3, .inverse h4, .inverse h5, .inverse h6 {
+    color: white !important; }
 
 .smallskip {
   margin-bottom: .5em !important; }

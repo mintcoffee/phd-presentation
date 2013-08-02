@@ -199,12 +199,10 @@ $accentColor: #474497;
 
 // Apply using data-state="inverse"
 .inverse {
-	.reveal {
-		background-color: #1B325F;
-		color: white;
-		h1, h2, h3, h4, h5, h6 {
-			color: inherit;
-		}
+	background-color: transparent !important;
+	color: white;
+	h1, h2, h3, h4, h5, h6 {
+		color: white !important;
 	}
 }
 
