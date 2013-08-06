@@ -296,7 +296,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 				</section>
 
 					<section>
-						<h2>Feature Model Synthesis Workflow</h2>
+						<h2>How the Algorithms Relate</h2>
 
 						<img src="figs/fge-fts.tex.svg" style="zoom: 2;" class="no-border">
 					</section>
@@ -338,18 +338,18 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						</div>
 						<div class="clearfix"></div>
 
-						<div style="float: left; width: 27%; height: 330px; text-align: center;">
+						<div style="float: left; width: 32%; height: 330px; text-align: center;">
 						<img src="figs/fd-less.tex.svg" class="no-border"  style="zoom: 2;">
 						<div class="caption">Less configs (sound)</div>
+						</div>
+						<div style="float: left; width: 33%; margin-right: .5%; height: 330px; text-align: center;">
+						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
+						<div class="caption">More configs (complete)</div>
 						</div>
 						<div style="float: left; width: 32%; height: 330px; text-align: center;">
 						<img src="figs/fd-arbitrary.tex.svg" class="no-border"  style="zoom: 2;">
 						<div class="caption" style="width: 32%;">Arbitrary</div>
 						</div>		
-						<div style="float: left; width: 40%; margin-right: .5%; height: 330px; text-align: center;">
-						<img src="figs/fd-more.tex.svg" class="no-border" style="zoom: 2;">
-						<div class="caption">More configs (complete)</div>
-						</div>
 					</section>
 
 
@@ -589,7 +589,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<img src="figs/flow-late.tex.svg" alt="" style="zoom: 1.5;" class="no-border">
 						</div>
 						<ul class="fragment" data-fragment-index="3">
-							<li><strong class="alert">Fully automatic</strong> algorithm for generating feature graphs.</li>
+							<li><strong class="alert">Fully automatic</strong> algorithm for extracting feature graphs.</li>
 							<li>Algorithm uses a SAT solver.</li>
 						</ul>
 					</section>
@@ -744,7 +744,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>
 
 					<section>
-						<h2 class="Dataset">smallskip Characteristics</h2>
+						<h2 class="smallskip">Dataset Characteristics</h2>
 
 						<div class="columns2">
 							<div class="column">
@@ -906,7 +906,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 					</section>
 
 					<section>
-						<h2>How the Algorithms Connect</h2>
+						<h2>How the Algorithms Relate</h2>
 
 						<div>
 							<img src="figs/fge-fts.tex.svg" style="zoom: 2;" class="no-border">
@@ -961,31 +961,16 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 						<dl class="small">
 							<dt>Ranked <strong>Implied Features</strong> (RIFs)</dt>
-							<dd>The implied features ranked by their similarity to the selected feature.</dd>
+							<dd>The implied features <strong class="alert">ranked by similarity</strong> to the selected feature.</dd>
 							<dt>Ranked <strong>All Features</strong> (RAFs)</dt>
-							<dd>All features in the input ranked by their similarity. Handles incomplete input.</dd>
+							<dd>All features in the input <strong class="alert">ranked by similarity</strong>. Handles incomplete input.</dd>
 						</dl>
 
 					</section>
 
 
 					<section>
-						<h2>Ranked Implied Features</h2>
-
-						<div>
-						<img src="figs/ig-reduced.tex.svg" class="no-border" style="zoom: 2; vertical-align: middle;"> <br>
-						</div>
-
-						<div class="medskip"></div>
-
-						<ul>
-							<li>Children features must logically imply parents in FMs.</li>
-							<li>Further prioritize <strong class="alert">directly implied features</strong>.</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2 class="medskip">Ranked All Features</h2>
+						<h2 class="medskip">Feature Similarity Measure Example</h2>
 
 						<p class="text-center">
 						Selecting a parent for:
@@ -1004,7 +989,7 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 							<dt><strong class="alert">networking</strong></dt>
 							<dd><strong class="alert">Network</strong> <strong class="alert">drivers</strong></dd>
 							<dt>ethernet</dt>
-							<dd><div>Type of local area<br> <strong class="alert">network</strong>ing</div></dd>
+							<dd><div>Type of local area<br> <strong class="alert">networking</strong></div></dd>
 						</dl>
 
 						<div class="fragment" style="display: inline-block; width: 300px; vertical-align: top;">
@@ -1021,6 +1006,27 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 
 
 					</section>
+					<section>
+						<h3>Ranked Implied Features</h3>
+
+						<div>
+						<img src="figs/ig-reduced.tex.svg" class="no-border" style="zoom: 1.7; vertical-align: middle;"> <br>
+						</div>
+
+						<ul class="small">
+							<li>Children features must logically imply parents in FMs.</li>
+							<li>Combines logical implications with feature similarity measure.</li>
+							<li>Further prioritize <strong class="alert">directly implied features</strong>.</li>
+						</ul>
+
+						<div class="medskip"></div>
+
+						<h3>Ranked All features</h3>
+						<ul class="small">
+							<li>Rely purely on features similarity in case of incomplete input.</li>
+						</ul>
+					</section>
+
 
 
 					<section>
@@ -1211,17 +1217,17 @@ synthesis of feature models,&rdquo; submitted for review in Journal of  Informat
 						<h2>The Kconfig Variability Modeling Language</h2>
 						<dl>
 							<dt>Motivation</dt>
-							<dd>Variability models available to researchers were small and typically gathered from academic papers.<br>e.g., largest model in SPLOT has 290 features.</dd>
+							<dd>Variability models available to researchers were small and not used in industry or real world projects.</dd>
 							<dt>Contribution</dt>
 							<dd>
-								<p>The Kconfig language was developed specifically to meet the variability modeling needs of the Linux kernel.</p>
+								<p>Analyzed Kconfig&mdash;variability modeling in Linux kernel.</p>
 								<p>Reverse engineered semantics of the Kconfig language and analyzed models from 12 open source projects.</p>
 							</dd>
 						</dl>
 					</section>
 					<section>
 						<h2>Size of Analyzed Kconfig Models</h2>
-						<img src="figs/tse-size-kconfig.svg">
+						<img src="figs/tse-size-kconfig.svg" style="zoom: .9;">
 
 						<p class="text-center">Largest variability models available to researchers.</p>
 						<p class="text-center">Used the Linux model for evaluating our tools.</p>
